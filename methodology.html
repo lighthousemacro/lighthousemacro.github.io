@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology | Lighthouse Macro</title>
+    <meta name="description" content="How we think about markets, risk, and positioning. Our philosophy, process, and the principles that guide Lighthouse Macro's research and advisory.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean: #0089D1;
+            --dusk: #FF6723;
+            --sky: #4FC3F7;
+            --sea: #00BB99;
+            --navy: #0A1628;
+            --dark: #111827;
+            --body: #333333;
+            --light: #F5F5F5;
+            --doldrums: #D3D6D9;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--body);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ── Accent Bar ── */
+        .accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--ocean) 70%, var(--dusk) 70%);
+        }
+
+        /* ── Navigation ── */
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--ocean);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--body);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ocean);
+        }
+
+        .nav-cta {
+            background: var(--ocean);
+            color: var(--white) !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: #0074b3;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--body);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* ── Page Header ── */
+        .page-header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--ocean);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.05rem;
+            color: var(--doldrums);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .header-accent {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ocean) 70%, var(--dusk) 70%);
+            margin: 1.5rem auto 0;
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ocean);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Philosophy Section ── */
+        .philosophy {
+            background: var(--light);
+        }
+
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .principle-card {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 1.75rem;
+            border-top: 3px solid var(--ocean);
+        }
+
+        .principle-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .principle-card p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* ── Process Section ── */
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ocean);
+            min-width: 60px;
+        }
+
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* ── Three-Layer Architecture ── */
+        .architecture-section {
+            background: var(--light);
+        }
+
+        .layer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .layer-card {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 1.75rem;
+            border-top: 3px solid var(--ocean);
+        }
+
+        .layer-card .layer-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--ocean);
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .layer-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .layer-card p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .layer-card .layer-question {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ocean);
+            font-style: italic;
+        }
+
+        .layer-flow {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .layer-flow-item {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .layer-flow-item.active {
+            background: var(--ocean);
+            color: var(--white);
+        }
+
+        .layer-flow-arrow {
+            display: inline-block;
+            color: var(--ocean);
+            font-size: 1.25rem;
+            margin: 0 0.5rem;
+            vertical-align: middle;
+        }
+
+        .dont-do-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .dont-do-item {
+            font-size: 0.85rem;
+            color: #6b7280;
+            padding: 0.5rem 0.75rem;
+            background: var(--white);
+            border-radius: 4px;
+            border-left: 3px solid var(--dusk);
+        }
+
+        /* ── Differentiation Section ── */
+        .diff-section {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .diff-section .section-label {
+            color: var(--sky);
+        }
+
+        .diff-section .section-title {
+            color: var(--white);
+        }
+
+        .diff-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .diff-table th,
+        .diff-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .diff-table th {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--ocean);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .diff-table td {
+            font-size: 0.9rem;
+            color: var(--doldrums);
+        }
+
+        .diff-table td:first-child {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .diff-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .lighthouse-approach {
+            color: var(--sea) !important;
+        }
+
+        /* ── Asset Classes Section ── */
+        .asset-section {
+            background: var(--light);
+        }
+
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .asset-card {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .asset-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .asset-card p {
+            font-size: 0.85rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .asset-card .examples {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--ocean);
+            font-weight: 500;
+        }
+
+        /* ── Rules Section ── */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .rule-card {
+            background: var(--light);
+            border-left: 4px solid var(--dusk);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+
+        .rule-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .rule-card .condition {
+            font-size: 0.85rem;
+            color: var(--ocean);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .rule-card p {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .rule-card .override {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--white);
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+
+        /* ── Transparency Section ── */
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .transparency-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .transparency-item p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        .transparency-item ul {
+            margin-top: 0.75rem;
+            padding-left: 1.25rem;
+        }
+
+        .transparency-item li {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── Guardrails Section ── */
+        .guardrail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .guardrail-card {
+            background: var(--light);
+            border-radius: 6px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--ocean);
+        }
+
+        .guardrail-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .guardrail-card .signal {
+            font-size: 0.8rem;
+            color: var(--ocean);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .guardrail-card p {
+            font-size: 0.85rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* ── Quote Block ── */
+        .quote-block {
+            background: var(--navy);
+            border-radius: 6px;
+            padding: 2rem 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .quote-block blockquote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .quote-block cite {
+            font-size: 0.85rem;
+            color: var(--ocean);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--dark);
+            color: var(--doldrums);
+            padding: 3rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--ocean);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #6b7280;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--doldrums);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--ocean);
+        }
+
+        .footer-disclaimer {
+            width: 100%;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.7rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .footer-bottom-bar {
+            height: 3px;
+            background: linear-gradient(90deg, var(--ocean) 70%, var(--dusk) 70%);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .principle-grid,
+            .transparency-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .asset-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .step-number {
+                min-width: auto;
+            }
+
+            .guardrail-grid,
+            .layer-grid,
+            .dont-do-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid #e5e7eb;
+                gap: 1rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">LIGHTHOUSE MACRO</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="framework.html">Framework</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="https://research.lighthousemacro.com" class="nav-cta">Read Our Research</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+    <h1>Methodology</h1>
+    <div class="subtitle">HOW WE THINK. HOW WE WORK.</div>
+    <p>Our approach is primarily systematic, built on quantitative frameworks and reproducible process. But the framework is a tool, not a master. Experience, pattern recognition, and judgment shape every decision. Transparency isn't a marketing angle. It's how we operate.</p>
+    <div class="header-accent"></div>
+</header>
+
+<!-- Philosophy Section -->
+<section class="philosophy">
+    <div class="section-inner">
+        <div class="section-label">Philosophy</div>
+        <h2 class="section-title">Core Principles</h2>
+
+        <div class="principle-grid">
+            <div class="principle-card">
+                <h3>Flows Over Stocks</h3>
+                <p>The level of unemployment matters less than the direction. We track flows through labor markets, credit markets, and the financial system. Change, not state, is what moves prices.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Framework Over Forecast</h3>
+                <p>We don't predict. We read the cycle and position accordingly. The framework tells us which regime we're in. Regime tells us how to size risk. Sizing determines outcomes.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Concentration Over Diversification</h3>
+                <p>Diversification is for capital preservation. Alpha comes from concentration. We run concentrated, high-conviction portfolios. 30 positions means 30 opinions you're not sure about.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Process Over Outcome</h3>
+                <p>Good process, bad outcome is acceptable. Bad process, good outcome is dangerous. We judge decisions at the time they're made, with the information available. Results are feedback, not validation.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Transparency Over Mystique</h3>
+                <p>Some research shops cultivate an air of mystery. We show our work. We explain what we're watching, why it matters, and what would change our mind. Every trade has a thesis and an invalidation trigger.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Variant Perception Over Consensus</h3>
+                <p>Being right and consensus is low value. Being right and non-consensus is where returns come from. We look for gaps between market pricing and our framework's signal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section>
+    <div class="section-inner">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How We Work</h2>
+
+        <div class="process-step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+                <h3>Data Collection</h3>
+                <p>Our pipeline pulls fresh data daily from primary government and institutional sources. No third-party aggregators. No approximations. Code-first means reproducibility first.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+                <h3>Indicator Computation</h3>
+                <p>Raw data flows through standardized transformations to create each pillar's composite index. The MRI synthesizes all 12 pillars into a regime reading. The numbers provide the foundation. Experience and pattern recognition shape the interpretation.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+                <h3>Regime Classification</h3>
+                <p>The MRI classifies the macro regime, from supportive through crisis. But regime classification is the starting point, not the conclusion. We overlay qualitative judgment, cross-pillar divergences, and real-time context before making allocation decisions.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">04</div>
+            <div class="step-content">
+                <h3>Divergence Scan</h3>
+                <p>We scan for cross-pillar divergences. Divergences are where the edge lives. When credit says one thing and labor says another, someone is wrong. These mismatches across domains are often the highest-conviction signals.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">05</div>
+            <div class="step-content">
+                <h3>Thesis Formation</h3>
+                <p>The framework generates signals. We translate those into actionable theses, articulating why the opportunity exists, what would invalidate it, and what the asymmetry looks like. Every position has a written thesis before entry. The data informs. Judgment decides.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">06</div>
+            <div class="step-content">
+                <h3>Position Sizing</h3>
+                <p>Conviction determines size. Higher conviction means larger positions. Lower conviction means smaller or no position. Size is adjusted based on the regime environment. We concentrate capital where the framework and our judgment agree.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">07</div>
+            <div class="step-content">
+                <h3>Execution &amp; Monitoring</h3>
+                <p>Positions are implemented and monitored against both thesis invalidation and price stops. We use dual stops: if the thesis breaks (data changes), we exit regardless of price. If price breaks (stop hit), we exit regardless of thesis.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Execution Flexibility -->
+<section class="philosophy">
+    <div class="section-inner">
+        <div class="section-label">Execution</div>
+        <h2 class="section-title">Macro Thesis Meets Market Reality</h2>
+        <p style="color: #6b7280; margin-bottom: 1.5rem;">True global macro is directional, not directionally constrained. We have views. In a world where prices go up most of the time, our bias is towards owning. The framework accommodates wherever the thesis takes us: long or short.</p>
+
+        <div class="principle-grid">
+            <div class="principle-card">
+                <h3>Macro-Driven Positioning</h3>
+                <p>Our primary approach is thesis-driven: three-engine convergence identifies the opportunity, conviction scoring determines the size, and dual stops (thesis invalidation + price invalidation) manage the risk. When the macro picture is clear, we lean in.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Technical Adaptability</h3>
+                <p>Markets don't always wait for the macro to catch up. When our framework signals caution but strong trends are running, we have the flexibility to participate through price-driven positioning with tighter risk management. This keeps us dynamic across different market environments.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Cash as a Position</h3>
+                <p>When neither the macro thesis nor the technical picture supports risk, we hold cash. Meaningful cash allocations are not a failure of imagination. They're a reflection of discipline. The best trade is sometimes no trade.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>Dual Stop Framework</h3>
+                <p>Every position is monitored against two independent triggers. If the thesis breaks, we exit regardless of price. If the price structure breaks, we exit regardless of thesis. Either condition is sufficient. This prevents the most dangerous mistake in macro: holding a broken position because "the thesis is still intact."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Three-Layer Architecture -->
+<section class="architecture-section">
+    <div class="section-inner">
+        <div class="section-label">Risk Architecture</div>
+        <h2 class="section-title">Three-Layer Recession Framework</h2>
+        <p style="color: #6b7280; margin-bottom: 0.5rem;">The MRI is only one layer. Our full risk architecture operates on three distinct levels, each answering a different question. Together, they provide both the strategic view and the tactical response.</p>
+
+        <div class="layer-grid">
+            <div class="layer-card">
+                <div class="layer-label">Layer 1</div>
+                <h3>Recession Probability Model</h3>
+                <p>Estimates the probability of recession onset within a forward-looking window based on the current state of leading indicators. This isn't a forecast of GDP. It's a probability distribution derived from historical patterns: when these conditions existed before, how often did recession follow?</p>
+                <p>The model synthesizes labor market flows, credit conditions, yield curve dynamics, and real economy indicators. Lead times vary by indicator, and the model accounts for this by weighting inputs according to their historical reliability at different horizons.</p>
+                <div class="layer-question">"What's the probability?"</div>
+            </div>
+
+            <div class="layer-card">
+                <div class="layer-label">Layer 2</div>
+                <h3>Warning System</h3>
+                <p>Continuously monitors key indicators against historically significant thresholds. When an indicator crosses into territory that preceded past recessions, a warning triggers. This isn't about prediction. It's about pattern recognition.</p>
+                <p>Warnings are additive: one warning is noise, multiple warnings demand attention. When warnings across different domains fire simultaneously, the probability of coincidence drops dramatically.</p>
+                <div class="layer-question">"What's triggering?"</div>
+            </div>
+
+            <div class="layer-card">
+                <div class="layer-label">Layer 3</div>
+                <h3>Risk Ensemble (MRI)</h3>
+                <p>The Macro Risk Index synthesizes all twelve pillars into a regime indicator. It answers a different question than the recession model: not "is recession coming?" but "what is the current risk environment for asset allocation?"</p>
+                <p>MRI operates in real-time, classifying regimes with specific implications for position sizing, sector allocation, and defensive posture. The ensemble approach ensures no single pillar dominates.</p>
+                <div class="layer-question">"How should we be positioned?"</div>
+            </div>
+        </div>
+
+        <div class="layer-flow">
+            <span class="layer-flow-item active">Probability Model</span>
+            <span class="layer-flow-arrow">→</span>
+            <span class="layer-flow-item active">Warning System</span>
+            <span class="layer-flow-arrow">→</span>
+            <span class="layer-flow-item active">MRI Ensemble</span>
+        </div>
+
+        <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;">Design Principles</h3>
+        <div class="principle-grid" style="margin-top: 0.75rem;">
+            <div class="principle-card">
+                <h3>Flows Over Stocks</h3>
+                <p>We track rates of change, not levels. The quits rate matters more than the unemployment rate. Credit growth matters more than credit outstanding. Flows lead, stocks lag.</p>
+            </div>
+            <div class="principle-card">
+                <h3>Ensemble Over Single Indicator</h3>
+                <p>No indicator is reliable in isolation. The yield curve has false positives. Unemployment has false negatives. Combining uncorrelated signals reduces error.</p>
+            </div>
+            <div class="principle-card">
+                <h3>Regimes Over Point Forecasts</h3>
+                <p>We classify environments, not predict outcomes. Being positioned for a high-risk regime is more valuable than predicting recession timing precisely.</p>
+            </div>
+            <div class="principle-card">
+                <h3>Lead Time Matters</h3>
+                <p>Different indicators lead by different amounts. The model accounts for this, weighting inputs by their historical lead time and reliability at each horizon.</p>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--dark); margin-top: 2rem; margin-bottom: 0.5rem;">What We Don't Do</h3>
+        <div class="dont-do-grid">
+            <div class="dont-do-item">Predict specific recession start dates</div>
+            <div class="dont-do-item">Rely on any single indicator</div>
+            <div class="dont-do-item">Ignore signals that conflict with our view</div>
+            <div class="dont-do-item">Treat model output as certainty</div>
+            <div class="dont-do-item">Chase lagging indicators</div>
+            <div class="dont-do-item">Dismiss low-probability, high-impact scenarios</div>
+        </div>
+    </div>
+</section>
+
+<!-- Differentiation Section -->
+<section class="diff-section">
+    <div class="section-inner">
+        <div class="section-label">Differentiation</div>
+        <h2 class="section-title">Lighthouse vs. Consensus</h2>
+
+        <table class="diff-table">
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Lighthouse Approach</th>
+                    <th>Consensus Approach</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Signal Source</td>
+                    <td class="lighthouse-approach">12 Pillars → Proprietary Composites</td>
+                    <td>Headlines, lagging data</td>
+                </tr>
+                <tr>
+                    <td>Framework</td>
+                    <td class="lighthouse-approach">Three-Engine System</td>
+                    <td>Single-dimensional analysis</td>
+                </tr>
+                <tr>
+                    <td>Position Sizing</td>
+                    <td class="lighthouse-approach">Conviction-weighted</td>
+                    <td>Equal-weighted</td>
+                </tr>
+                <tr>
+                    <td>Concentration</td>
+                    <td class="lighthouse-approach">Concentrated, high-conviction</td>
+                    <td>30+ marginal positions</td>
+                </tr>
+                <tr>
+                    <td>Cash Treatment</td>
+                    <td class="lighthouse-approach">Active position (meaningful allocation valid)</td>
+                    <td>Residual drag</td>
+                </tr>
+                <tr>
+                    <td>Risk Framework</td>
+                    <td class="lighthouse-approach">Dual stops (thesis + price)</td>
+                    <td>Single trailing stop</td>
+                </tr>
+                <tr>
+                    <td>Timeframe</td>
+                    <td class="lighthouse-approach">3-6 month tactical core</td>
+                    <td>Arbitrary calendar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Asset Classes Section -->
+<section class="asset-section">
+    <div class="section-inner">
+        <div class="section-label">Implementation</div>
+        <h2 class="section-title">Asset Class Coverage</h2>
+        <p style="color: #6b7280; margin-bottom: 1rem;">The 12 Pillars are the diagnostic framework. Asset classes are how we express views. We cover the full spectrum from liquid ETFs to individual securities, depending on client needs and conviction level.</p>
+
+        <div class="asset-grid">
+            <div class="asset-card">
+                <h3>Equities</h3>
+                <p>Broad indices, sectors, and single names. Factor tilts and thematic exposure.</p>
+                <div class="examples">SPY, QQQ, XLF, XLE, individual stocks</div>
+            </div>
+
+            <div class="asset-card">
+                <h3>Rates</h3>
+                <p>Duration positioning across the curve. TIPS, Treasuries, and credit.</p>
+                <div class="examples">TLT, IEF, SHY, SGOV, TIP</div>
+            </div>
+
+            <div class="asset-card">
+                <h3>Credit</h3>
+                <p>Investment grade, high yield, leveraged loans. Spread compression and widening plays.</p>
+                <div class="examples">LQD, HYG, JNK, BKLN, EMB</div>
+            </div>
+
+            <div class="asset-card">
+                <h3>Commodities</h3>
+                <p>Gold, energy, industrial metals. Inflation hedges and growth signals.</p>
+                <div class="examples">GLD, XLE, CPER, DBC</div>
+            </div>
+
+            <div class="asset-card">
+                <h3>Currencies</h3>
+                <p>Dollar positioning, carry trades, EM FX exposure.</p>
+                <div class="examples">UUP, FXE, FXY, CEW</div>
+            </div>
+
+            <div class="asset-card">
+                <h3>Crypto</h3>
+                <p>BTC, ETH, and select alts. Liquidity-driven framework tied to Fed plumbing and net liquidity dynamics.</p>
+                <div class="examples">BTC, ETH, SOL, stablecoins</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Risk Signals Section -->
+<section>
+    <div class="section-inner">
+        <div class="section-label">Discipline</div>
+        <h2 class="section-title">Technical Guardrails</h2>
+        <p style="color: #6b7280; margin-bottom: 1rem;">These are signals we monitor, not rules we obey blindly. In normal ranges, they're inputs to weigh alongside fundamentals and cross-pillar readings. At extremes, they demand respect. The discipline is knowing the difference.</p>
+
+        <div class="guardrail-grid">
+            <div class="guardrail-card">
+                <h4>Trend Position</h4>
+                <div class="signal">Price vs. 200d MA</div>
+                <p>Where price sits relative to the long-term trend. Below the 200d raises the bar for longs, but mature downtrends can offer opportunity. Context determines whether it's a warning or a setup.</p>
+            </div>
+
+            <div class="guardrail-card">
+                <h4>Trend Structure</h4>
+                <div class="signal">50d vs. 200d MA relationship</div>
+                <p>The shape of the trend. A death cross signals weakening structure, but duration matters. Fresh crosses are more concerning than stale ones. Weigh against breadth and momentum.</p>
+            </div>
+
+            <div class="guardrail-card">
+                <h4>Relative Strength</h4>
+                <div class="signal">Performance vs. benchmark</div>
+                <p>Is the asset earning its risk? Persistent underperformance is a flag. But relative weakness during sector rotation is different than relative weakness during broad risk-off.</p>
+            </div>
+
+            <div class="guardrail-card">
+                <h4>Momentum</h4>
+                <div class="signal">Z-RoC (63-day)</div>
+                <p>Rate of change normalized. At extremes (below -1.5 or above +1.5), momentum is telling you something important. In normal ranges, it's one input among many.</p>
+            </div>
+
+            <div class="guardrail-card">
+                <h4>Extension</h4>
+                <div class="signal">Distance from 50d MA</div>
+                <p>How stretched is price from its anchor? Extreme extension (15%+) means poor entry risk/reward. But extension in a strong trend is different than extension in a weak one.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Transparency Section -->
+<section class="philosophy">
+    <div class="section-inner">
+        <div class="section-label">Transparency</div>
+        <h2 class="section-title">What We Share</h2>
+
+        <div class="transparency-grid">
+            <div class="transparency-item">
+                <h3>Published Methodology</h3>
+                <p>The Diagnostic Dozen educational series walks through each pillar in detail. The framework is not a black box. You can understand exactly how we reach conclusions.</p>
+            </div>
+
+            <div class="transparency-item">
+                <h3>Composite Components</h3>
+                <p>Each proprietary index is built from publicly available data sources. We share the components and the logic. The specific construction and weighting is our edge.</p>
+            </div>
+
+            <div class="transparency-item">
+                <h3>Position Rationale</h3>
+                <p>When we take a position, we articulate:</p>
+                <ul>
+                    <li>The thesis (why this, why now)</li>
+                    <li>The invalidation trigger (what would make us wrong)</li>
+                    <li>The sizing rationale (conviction tier and regime)</li>
+                </ul>
+            </div>
+
+            <div class="transparency-item">
+                <h3>Honest Attribution</h3>
+                <p>When we're wrong, we say so. Post-mortems are part of the process. The goal is calibration over time, not pretending to be infallible.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand">LIGHTHOUSE MACRO</div>
+            <div class="footer-tagline">MACRO, ILLUMINATED.</div>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="framework.html">Framework</a>
+            <a href="methodology.html">Methodology</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="footer-disclaimer">
+            <strong>Disclaimer:</strong> Lighthouse Macro, LLC provides research and advisory services that are informational and educational in nature. Nothing published or communicated by Lighthouse Macro constitutes personalized investment advice, a solicitation, or a recommendation to buy, sell, or hold any security. All investment decisions are the sole responsibility of the reader or client. Past performance is not indicative of future results. Lighthouse Macro, LLC is not a registered investment advisor. &copy; 2026 Lighthouse Macro, LLC. All rights reserved.
+        </div>
+    </div>
+</footer>
+<div class="footer-bottom-bar"></div>
+
+</body>
+</html>
