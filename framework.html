@@ -13,6 +13,12 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@LHMacro">
     <meta name="twitter:image" content="https://lighthousemacro.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2389BB">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -20,7 +26,7 @@
         :root {
             --ocean: #2389BB;
             --dusk: #FF6723;
-            --sky: #00BBFF;
+            --sky: #23BBFF;
             --sea: #00BB89;
             --navy: #0A1628;
             --dark: #111827;
@@ -439,10 +445,34 @@
             border-radius: 6px;
             padding: 1.75rem;
             border-left: 4px solid var(--ocean);
+            display: flex;
+            flex-direction: column;
         }
 
         .engine-section.monetary .pillar-card {
             background: var(--white);
+        }
+
+        .pillar-card .pillar-card-link {
+            display: inline-block;
+            margin-top: auto;
+            padding-top: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dusk);
+            text-decoration: none;
+            border-top: 1px solid #e5e7eb;
+            transition: color 0.15s ease;
+        }
+
+        .pillar-card .pillar-card-link:hover {
+            color: var(--ocean);
+        }
+
+        .pillar-card .pillar-card-link::after {
+            content: ' →';
+            display: inline;
         }
 
         .pillar-card .pillar-number {
@@ -724,58 +754,58 @@
         <div class="pillar-grid">
             <!-- Pillar 1: Labor -->
             <div class="pillar-card">
-
-                <h3>Labor</h3>
-                <div class="index-name">Proprietary Composite Indices</div>
+                <h3>Labor: The Source Code</h3>
+                <div class="index-name">Pillar 1 · Proprietary Composite Indices</div>
                 <p>The labor market is the economy's truth serum. We track flows, not stocks. Quits reveal worker confidence before unemployment rises. Temp help leads payrolls. Hours lead headcount. The signals are there if you know where to look.</p>
+                <a href="https://research.lighthousemacro.com/p/labor-the-source-code" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 2: Prices -->
             <div class="pillar-card">
-
-                <h3>Prices</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Prices: The Transmission Belt</h3>
+                <div class="index-name">Pillar 2 · Proprietary Composite Index</div>
                 <p>Inflation isn't one thing. We decompose it into goods, services, shelter, and energy. Each has different drivers, different lags, and different policy implications. Shelter lags reality by 12-18 months.</p>
+                <a href="https://research.lighthousemacro.com/p/prices-the-transmission-belt" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 3: Growth -->
             <div class="pillar-card">
-
-                <h3>Growth</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Growth: The Second Derivative</h3>
+                <div class="index-name">Pillar 3 · Proprietary Composite Index</div>
                 <p>GDP is backward-looking. We focus on the second derivative: is growth accelerating or decelerating? PMIs, industrial production, and real-time nowcasts tell us where we're headed, not where we've been.</p>
+                <a href="https://research.lighthousemacro.com/p/growth-the-second-derivative" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 4: Housing -->
             <div class="pillar-card">
-
-                <h3>Housing</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Housing: The Collateral Engine</h3>
+                <div class="index-name">Pillar 4 · Proprietary Composite Index</div>
                 <p>Housing is the most rate-sensitive sector. The current market is frozen: existing homeowners locked in at 3% won't sell, while new buyers face 7% rates. This creates a supply-demand imbalance that defies normal cycles.</p>
+                <a href="https://research.lighthousemacro.com/p/housing-the-collateral-engine" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 5: Consumer -->
             <div class="pillar-card">
-
-                <h3>Consumer</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Consumer: The Last Domino</h3>
+                <div class="index-name">Pillar 5 · Proprietary Composite Index</div>
                 <p>The consumer is 68% of GDP but a lagging indicator. By the time consumer spending rolls over, the recession has already started. We watch credit conditions, savings rates, and confidence as leading signals.</p>
+                <a href="https://research.lighthousemacro.com/p/consumer-the-last-domino" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 6: Business -->
             <div class="pillar-card">
-
-                <h3>Business</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Business: The Forward Commitment</h3>
+                <div class="index-name">Pillar 6 · Proprietary Composite Index</div>
                 <p>Business investment is a forward commitment. Capex decisions made today reflect expectations about demand 12-24 months out. When businesses pull back on investment, they're telling you something about the future.</p>
+                <a href="https://research.lighthousemacro.com/p/business-the-forward-commitment" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 7: Trade -->
             <div class="pillar-card">
-
-                <h3>Trade</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Trade: The Pipeline</h3>
+                <div class="index-name">Pillar 7 · Proprietary Composite Index</div>
                 <p>Global trade flows reveal demand that domestic data misses. The dollar is the transmission mechanism: a strong dollar tightens global financial conditions, while tariffs create inflationary pass-through with variable lags.</p>
+                <a href="https://research.lighthousemacro.com/p/trade-the-pipeline" class="pillar-card-link">Read the full analysis</a>
             </div>
         </div>
     </div>
@@ -793,26 +823,26 @@
         <div class="pillar-grid">
             <!-- Pillar 8: Government -->
             <div class="pillar-card">
-
-                <h3>Government</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Government: The Fiscal Overhang</h3>
+                <div class="index-name">Pillar 8 · Proprietary Composite Index</div>
                 <p>Fiscal dominance is the defining macro theme of this decade. $36T in debt, $1T+ annual deficits, and a maturity wall that requires constant refinancing. Treasury supply is no longer a background variable.</p>
+                <a href="https://research.lighthousemacro.com/p/government-the-fiscal-overhang" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 9: Financial -->
             <div class="pillar-card">
-
-                <h3>Financial</h3>
-                <div class="index-name">Proprietary Composite Indices</div>
+                <h3>Financial: The Cascade</h3>
+                <div class="index-name">Pillar 9 · Proprietary Composite Indices</div>
                 <p>Credit spreads are forward-looking but can be wrong. We cross-reference credit conditions against labor market health. When spreads are tight but labor is deteriorating, credit is mispricing risk. That gap is where opportunity lives.</p>
+                <a href="https://research.lighthousemacro.com/p/financial-the-cascade" class="pillar-card-link">Read the full analysis</a>
             </div>
 
             <!-- Pillar 10: Plumbing -->
             <div class="pillar-card">
-
-                <h3>Plumbing</h3>
-                <div class="index-name">Proprietary Composite Index</div>
+                <h3>Plumbing: The Invisible Infrastructure</h3>
+                <div class="index-name">Pillar 10 · Proprietary Composite Index</div>
                 <p>The Fed's balance sheet mechanics matter more than the policy rate. Reserves, the RRP facility, and repo market dynamics determine whether liquidity is abundant or scarce. When the buffer is gone, volatility arrives.</p>
+                <a href="https://research.lighthousemacro.com/p/plumbing-the-invisible-infrastructure" class="pillar-card-link">Read the full analysis</a>
             </div>
         </div>
     </div>
@@ -828,20 +858,20 @@
         <p class="section-subtitle">Price action and positioning. These two pillars track market internals, breadth, momentum, and sentiment. They tell us how participants are positioned and whether price action confirms or diverges from fundamentals.</p>
 
         <div class="pillar-grid">
-            <!-- Pillar 11: Structure -->
+            <!-- Pillar 11: Market Structure -->
             <div class="pillar-card">
-
-                <h3>Structure</h3>
-                <div class="index-name">Proprietary Composite Indices</div>
+                <h3>Market Structure: The Weight of Evidence</h3>
+                <div class="index-name">Pillar 11 · Proprietary Composite Indices</div>
                 <p>Price can lie, but breadth cannot. When indices make new highs but fewer stocks participate, that's distribution. We track whether the rally has broad participation or is narrowing to a few names. Generals without soldiers don't hold territory.</p>
+                <a href="https://research.lighthousemacro.com/p/market-structure-the-weight-of-evidence" class="pillar-card-link">Read the full analysis</a>
             </div>
 
-            <!-- Pillar 12: Sentiment -->
+            <!-- Pillar 12: Sentiment & Positioning -->
             <div class="pillar-card">
-
-                <h3>Sentiment</h3>
-                <div class="index-name">Proprietary Composite Indices</div>
+                <h3>Sentiment &amp; Positioning: The Contrarian Edge</h3>
+                <div class="index-name">Pillar 12 · Proprietary Composite Indices</div>
                 <p>Sentiment is only useful at extremes. We track surveys, positioning data, and options flow to identify capitulation and euphoria. Combining sentiment with market structure helps spot blow-off tops and washout lows. The crowd is wrong at the moments that matter most.</p>
+                <a href="https://research.lighthousemacro.com/p/sentiment-and-positioning-the-contrarian-216" class="pillar-card-link">Read the full analysis</a>
             </div>
         </div>
     </div>

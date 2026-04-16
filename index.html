@@ -15,6 +15,12 @@
     <meta name="twitter:title" content="Lighthouse Macro | Macro, Illuminated.">
     <meta name="twitter:description" content="Institutional-grade macro research built on the Diagnostic Dozen framework.">
     <meta name="twitter:image" content="https://lighthousemacro.com/og-image.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2389BB">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -22,7 +28,7 @@
         :root {
             --ocean: #2389BB;
             --dusk: #FF6723;
-            --sky: #00BBFF;
+            --sky: #23BBFF;
             --sea: #00BB89;
             --navy: #0A1628;
             --dark: #111827;
@@ -538,6 +544,22 @@
             color: #6b7280;
         }
 
+        .recognition-link {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            text-decoration: none;
+            transition: opacity 0.15s ease;
+        }
+
+        .recognition-link:hover .recognition-source {
+            text-decoration: underline;
+        }
+
+        .recognition-link:hover .recognition-desc {
+            color: #4b5563;
+        }
+
         /* ── Research Section ── */
         .research {
             background: var(--navy);
@@ -826,6 +848,10 @@
                 </ul>
             </div>
         </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+            <a href="framework.html" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--dusk); text-decoration: none;">Explore all 12 pillars &rarr;</a>
+        </div>
     </div>
 </section>
 
@@ -977,12 +1003,25 @@
                             <span class="recognition-desc">"Banking on Nonbanks" featured in FT Alphaville's curated reading list (Nov 2025)</span>
                         </div>
                         <div class="recognition-item">
+                            <a href="https://play.acast.com/s/5ceef7c6e5d72f4c1011c00d/699f86c91eb5ccf45649bce0" class="recognition-link" target="_blank" rel="noopener">
+                                <span class="recognition-source">WealthVest Weekly Bull &amp; Bear</span>
+                                <span class="recognition-desc">Podcast appearance with Tim Pierotti, CIO of WealthVest, discussing the labor market, consumer health, and why the macro cycle is more fragile than headlines suggest (Feb 2026)</span>
+                            </a>
+                            <iframe title="WealthVest Weekly Bull &amp; Bear featuring Bob Sheehan" width="100%" height="188" src="https://embed.acast.com/5ceef7c6e5d72f4c1011c00d/699f86c91eb5ccf45649bce0" scrolling="no" frameborder="0" style="border:none;overflow:hidden;margin-top:0.5rem;border-radius:4px;"></iframe>
+                        </div>
+                        <div class="recognition-item">
                             <span class="recognition-source">Forward Guidance (Blockworks)</span>
                             <span class="recognition-desc">Charts and analysis featured on-screen during podcast recording (Aug 2025)</span>
                         </div>
                         <div class="recognition-item">
                             <span class="recognition-source">Less Noise More Signal</span>
                             <span class="recognition-desc">Podcast appearance discussing repo markets, Fed plumbing, and crypto/Treasury transmission with Pascal H&uuml;gli (Oct 2025)</span>
+                        </div>
+                        <div class="recognition-item">
+                            <a href="https://www.lessnoise-moresignal.com/report" class="recognition-link" target="_blank" rel="noopener">
+                                <span class="recognition-source">LNMS Bitcoin Report</span>
+                                <span class="recognition-desc">Featured contributor in "What Really Drives the Bitcoin Price" (Pascal H&uuml;gli, March 2026), discussing macro liquidity and the crypto/Treasury transmission channel</span>
+                            </a>
                         </div>
                         <div class="recognition-item">
                             <span class="recognition-source">LNMS Year-End Report 2025/2026</span>
@@ -1035,9 +1074,8 @@
         <div class="section-label">Stay Connected</div>
         <h2 class="section-title">Subscribe to the Research</h2>
         <p class="section-subtitle" style="margin: 0 auto 2rem;">Macro analysis built on the Diagnostic Dozen framework. Free educational content and paid research, delivered to your inbox.</p>
-        <div style="max-width: 480px; margin: 0 auto;">
-            <iframe src="https://research.lighthousemacro.com/embed" width="100%" height="320" style="border: 1px solid var(--ocean); background: white; border-radius: 6px;" frameborder="0" scrolling="no"></iframe>
-        </div>
+        <a href="https://research.lighthousemacro.com/subscribe" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2.5rem;">Subscribe on Substack &rarr;</a>
+        <p style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--doldrums);">Free weekly Beacon. Twice-weekly Beams for subscribers. The Diagnostic Dozen framework, applied live.</p>
     </div>
 </section>
 
