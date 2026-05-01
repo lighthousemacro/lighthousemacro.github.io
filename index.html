@@ -648,6 +648,18 @@
             color: var(--ocean);
             font-weight: 500;
             text-decoration: none;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 480px) {
+            .contact-methods {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .contact-item a {
+                font-size: 0.85rem;
+            }
         }
 
         .contact-item a:hover {
@@ -781,7 +793,7 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links">
-            <li><a href="framework.html">Framework</a></li>
+            <li><a href="framework.html">The Diagnostic Dozen</a></li>
             <li><a href="methodology.html">Methodology</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
@@ -863,21 +875,6 @@
         <p class="section-subtitle">From published research to hands-on advisory. Same framework, different depth of engagement.</p>
 
         <div class="tiers-grid">
-            <div class="tier-card">
-                <h3>Research</h3>
-                <div class="tier-target">Investors, professionals, business owners</div>
-                <div class="tier-price">$50<span>/month or $500/year</span></div>
-                <p class="tier-desc">Full access to our published macro research, frameworks, and analysis. The same engine that drives our advisory work, delivered on Substack.</p>
-                <ul class="tier-features">
-                    <li>Weekly Beacon (long-form macro analysis)</li>
-                    <li>Chartbook (50-75 institutional-quality charts)</li>
-                    <li>The Diagnostic Dozen educational series</li>
-                    <li>Proprietary composite index readings</li>
-                    <li>Full research archive</li>
-                </ul>
-                <a href="https://research.lighthousemacro.com" class="tier-cta">Subscribe</a>
-            </div>
-
             <div class="tier-card featured">
                 <span class="tier-badge">Most Flexible</span>
                 <h3>Advisor</h3>
@@ -1109,7 +1106,7 @@
             <div class="footer-tagline">MACRO, ILLUMINATED.</div>
         </div>
         <div class="footer-links">
-            <a href="framework.html">Framework</a>
+            <a href="framework.html">The Diagnostic Dozen</a>
             <a href="methodology.html">Methodology</a>
             <a href="#services">Services</a>
             <a href="#about">About</a>
