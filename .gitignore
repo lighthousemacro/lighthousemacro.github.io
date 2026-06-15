@@ -1,1 +1,4 @@
 *.bak
+.DS_Store
+.claude/
+index.html.zip
