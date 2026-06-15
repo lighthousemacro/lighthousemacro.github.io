@@ -1,0 +1,17 @@
+# Lighthouse Macro
+
+> Institutional-grade macro and economic intelligence, built on framework and process. Founded and run by Bob Sheehan, CFA, CMT. Tagline: Macro, Illuminated.
+
+Lighthouse Macro reads the economic cycle through the Diagnostic Dozen: twelve macro pillars across three engines (Macro Dynamics, Monetary Mechanics, Market Structure). The pillars feed proprietary composites and a master risk index (MRI), surfaced on a public live dashboard. The framework serves two audiences: market participants (advisors, allocators, CIOs) and operators (CEOs, CFOs, founders) who need macro for capital, hiring, and capex decisions.
+
+## Research
+- [The Reading Room](https://research.lighthousemacro.com): the publication stack on Substack, including the Beacon (weekly flagship), Beam (twice weekly), Note (free), Chartbook, and Horizon (monthly outlook)
+- [The Diagnostic Dozen](https://lighthousemacro.com/framework.html): the twelve-pillar framework, free educational series
+
+## About
+- [Founder: Bob Sheehan, CFA, CMT](https://lighthousemacro.com/#about): former Associate PM at Bank of America Private Bank, VP Data & Analytics at EquiLend
+
+## Contact
+- advisory@lighthousemacro.com (advisory and consulting)
+- research@lighthousemacro.com (research and subscriptions)
+- bob@lighthousemacro.com (general and media)

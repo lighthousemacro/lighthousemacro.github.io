@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.lighthousemacro.com)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(chmod:*)",
+      "Bash(~/.zshrc)",
+      "Bash(/Users/bob/LHM/Scripts/sync_claude_context.sh:*)",
+      "Bash(open:*)",
+      "WebSearch",
+      "WebFetch(domain:cryptoquant.com)"
+    ]
+  }
+}
