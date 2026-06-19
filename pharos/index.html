@@ -85,10 +85,17 @@
         .hero-tag { margin-top:2.6rem; font-family:'Source Code Pro',monospace; font-size:0.7rem;
                     letter-spacing:0.18em; color:#6b8398; }
 
-        /* subscriber sign-in (TBL-Pulse-style one-click entry) */
-        .signin { max-width:560px; margin-top:0.4rem; background:rgba(255,255,255,0.04);
-                  border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:1.6rem; }
-        .signin-label { color:var(--sky); margin-bottom:0.9rem; }
+        /* Substack subscriber callout card (LHM branding) */
+        .sub-card { max-width:560px; margin-top:0.4rem; background:rgba(35,137,187,0.10);
+                    border:1px solid rgba(137,204,255,0.28); border-radius:12px; overflow:hidden; }
+        .sub-bar { height:4px; background:linear-gradient(90deg,var(--ocean) 66%,var(--dusk) 66%); }
+        .sub-in { padding:1.5rem 1.6rem 1.6rem; }
+        .sub-head { display:flex; gap:0.9rem; align-items:flex-start; margin-bottom:1.15rem; }
+        .sub-ico { flex:none; width:42px; height:42px; border-radius:9px; background:var(--ocean);
+                   display:flex; align-items:center; justify-content:center; }
+        .sub-ico svg { width:22px; height:22px; display:block; }
+        .sub-title { font-family:'Montserrat',sans-serif; font-weight:700; color:#fff; font-size:1.04rem; line-height:1.25; }
+        .sub-subtext { color:#9fb3c4; font-size:0.88rem; margin-top:0.28rem; }
         .signin-row { display:flex; gap:0.6rem; flex-wrap:wrap; }
         .signin-row input { flex:1; min-width:220px; background:rgba(255,255,255,0.06);
                             border:1px solid rgba(255,255,255,0.16); border-radius:7px;
@@ -99,8 +106,8 @@
                              padding:0.95rem 1.4rem; font-family:'Montserrat',sans-serif; font-weight:700;
                              font-size:0.9rem; letter-spacing:0.03em; cursor:pointer; white-space:nowrap; }
         .signin-row button:hover { filter:brightness(0.93); }
-        .signin-sub { margin-top:0.95rem; font-size:0.85rem; color:#9fb3c4; }
-        .signin-sub a { color:var(--sky); text-decoration:none; font-weight:600; }
+        .sub-fine { margin-top:0.95rem; font-size:0.8rem; color:#7e93a5; }
+        .sub-fine a { color:var(--sky); text-decoration:none; font-weight:600; }
 
         /* sections */
         section { padding:4.5rem 0; }
@@ -201,13 +208,24 @@
         <div class="hero-eyebrow mono">// READ THE WORK. WATCH THE ENGINE. PULL THE DASHBOARDS.</div>
         <h1>PHAROS<span class="dot">.</span></h1>
         <p class="hero-sub">The Lighthouse Macro terminal. The full research, the exclusive work that never hits Substack, the live macro dashboard with the full chart library, and the subscriber room. One place, behind one login, included with your paid subscription.</p>
-        <div class="signin">
-            <div class="signin-label mono">// Already subscribe on Substack? You're in.</div>
-            <form class="signin-row" method="post" action="https://pharos.lighthousemacro.com/auth/request">
-                <input type="email" name="email" required placeholder="the email on your subscription" autocomplete="email" aria-label="Subscription email">
-                <button type="submit">Enter Pharos &#8599;</button>
-            </form>
-            <div class="signin-sub">No password, no inbox. Enter the email on your subscription, we confirm it is active, and you are in. Not a member yet? <a href="https://research.lighthousemacro.com/subscribe">Become a member &rarr;</a></div>
+        <div class="sub-card">
+            <div class="sub-bar"></div>
+            <div class="sub-in">
+                <div class="sub-head">
+                    <div class="sub-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.4 4.4L19 7.3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                        <div class="sub-title">Paid Substack subscriber? Pharos is included.</div>
+                        <div class="sub-subtext">Use the email on your subscription to activate access.</div>
+                    </div>
+                </div>
+                <form class="signin-row" method="post" action="https://pharos.lighthousemacro.com/auth/request">
+                    <input type="email" name="email" required placeholder="the email on your subscription" autocomplete="email" aria-label="Subscription email">
+                    <button type="submit">Enter Pharos &#8599;</button>
+                </form>
+                <div class="sub-fine">No password, no inbox. We confirm your subscription is active and let you straight in. Not a member yet? <a href="https://research.lighthousemacro.com/subscribe">Become a member &rarr;</a></div>
+            </div>
         </div>
         <div class="hero-tag">MACRO, ILLUMINATED.</div>
     </div>
