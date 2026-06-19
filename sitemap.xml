@@ -2,25 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://lighthousemacro.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://lighthousemacro.com/research/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://lighthousemacro.com/pharos/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://lighthousemacro.com/framework.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://lighthousemacro.com/methodology.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://lighthousemacro.com/pharos.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://lighthousemacro.com/research/the-fed-put-retired.html</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-lighthouse-macro-chartbook.html</loc><lastmod>2026-06-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/markets-turn-in-order-and-the-order.html</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/markets-turn-in-order.html</loc><lastmod>2026-06-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/two-prints-in-one-release.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-widest-page-in-the-book.html</loc><lastmod>2026-05-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-long-end-broke-five-credit-hit.html</loc><lastmod>2026-05-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-records-dont-agree-with-the-tape.html</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/the-splitting-cycle.html</loc><lastmod>2026-05-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/the-honest-level.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/ai-is-fragmenting-the-cycle.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-rally-has-two-tells.html</loc><lastmod>2026-04-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/earnings-week-macro-week.html</loc><lastmod>2026-04-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-fragile-record.html</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-broadening-broke.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/a-17-print-a-014-tell.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/twelve-hours.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/two-economies.html</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/stocks-printed-a-record-bonds-and.html</loc><lastmod>2026-04-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -32,18 +21,14 @@
   <url><loc>https://lighthousemacro.com/research/crypto-liquidity-impulse.html</loc><lastmod>2026-03-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/government-the-fiscal-overhang.html</loc><lastmod>2026-03-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/trade-the-pipeline.html</loc><lastmod>2026-02-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/positioning-update-february-23-2026.html</loc><lastmod>2026-02-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/business-the-forward-commitment.html</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/housing-the-collateral-engine.html</loc><lastmod>2026-02-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/consumer-the-last-domino.html</loc><lastmod>2026-02-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-silent-capitulation-etf-exodus.html</loc><lastmod>2026-02-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/growth-the-second-derivative.html</loc><lastmod>2026-02-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/prices-the-transmission-belt.html</loc><lastmod>2026-02-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/labor-the-source-code.html</loc><lastmod>2026-01-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-reflexive-bid.html</loc><lastmod>2026-01-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/why-most-americans-dont-care-about.html</loc><lastmod>2026-01-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/introducing-lighthouse-macro-crypto.html</loc><lastmod>2026-01-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/positioning-update-playing-defense.html</loc><lastmod>2026-01-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/the-horizon-january-2026.html</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/the-beam-and-lnms-report.html</loc><lastmod>2025-12-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/the-beacon-banking-on-nonbanks.html</loc><lastmod>2025-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -56,15 +41,4 @@
   <url><loc>https://lighthousemacro.com/research/seemingly-stable-systemically-stressed.html</loc><lastmod>2025-09-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/collateral-fragility.html</loc><lastmod>2025-08-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://lighthousemacro.com/research/cracks-in-the-foundation-the-us-treasury.html</loc><lastmod>2025-08-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/bullion-brilliance.html</loc><lastmod>2025-03-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-vanishing-job-hopper-premium.html</loc><lastmod>2025-03-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/navigating-trade-tensions.html</loc><lastmod>2025-02-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-us-housing-market-in-2025.html</loc><lastmod>2025-02-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/new-year-new-paradigms.html</loc><lastmod>2025-01-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/cracks-beneath-the-surface.html</loc><lastmod>2024-12-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/chaos-in-china.html</loc><lastmod>2024-10-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/labor-woes-growth-slows.html</loc><lastmod>2024-09-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/monetary-monday.html</loc><lastmod>2024-07-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/welcome-to-lighthouse-macro.html</loc><lastmod>2024-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://lighthousemacro.com/research/the-dollar-vs-gold-and-real-yields.html</loc><lastmod>2024-05-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

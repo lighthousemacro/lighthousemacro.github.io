@@ -11,11 +11,13 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1p
 .nav-inner{max-width:1120px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px;}
 .nav-logo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:0.3px;}
 .nav-logo span{color:var(--ocean);}
-.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
+.nav-links{display:flex;gap:1.25rem;list-style:none;align-items:center;}
 .nav-links a{font-size:0.82rem;font-weight:500;color:var(--body);text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--ocean);}
-.nav-cta{background:var(--ocean);color:#fff !important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:600 !important;}
+.nav-cta{display:inline-block;white-space:nowrap;background:var(--ocean);color:#fff !important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:600 !important;}
 .nav-cta:hover{filter:brightness(0.85);}
+.nav-cta.alt{background:transparent;color:var(--ocean) !important;border:1px solid var(--ocean);padding:calc(0.45rem - 1px) calc(1.1rem - 1px);}
+.nav-cta.alt:hover{background:var(--ocean);color:#fff !important;filter:none;}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.4rem;}
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s;}
 
@@ -65,6 +67,7 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1p
 .rc-meta{display:flex;align-items:center;justify-content:space-between;gap:0.6rem;}
 .rc-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.12rem;line-height:1.2;color:var(--ink);}
 .rc-ex{font-size:0.9rem;color:#5b6770;line-height:1.55;}
+.rc-lock{display:inline-block;margin-top:0.6rem;font-family:'Source Code Pro',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--dusk);font-weight:600;}
 
 /* article */
 .art{padding:3rem 0 2rem;}
@@ -117,7 +120,7 @@ footer{background:var(--deep);color:#9fb3c4;padding:3.4rem 0 0;margin-top:2rem;}
 .foot-disclaimer{font-size:0.7rem;color:#6b7d8c;line-height:1.6;padding-bottom:2rem;}
 .foot-bar{height:5px;background:linear-gradient(90deg,var(--ocean) 66%,var(--dusk) 66%);}
 
-@media (max-width:900px){
+@media (max-width:1000px){
   .rgrid{grid-template-columns:1fr 1fr;}
   .foot-grid{grid-template-columns:1fr;}
   .nav-links{display:none;position:absolute;top:62px;left:0;right:0;background:#fff;flex-direction:column;padding:1rem 2rem;border-bottom:1px solid var(--line);gap:0.9rem;}
