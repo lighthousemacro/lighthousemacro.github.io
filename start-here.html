@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Here | Lighthouse Macro</title>
+    <meta name="description" content="What Lighthouse Macro is, how the Diagnostic Dozen framework works, and six places to start reading.">
+    <meta property="og:title" content="Start Here | Lighthouse Macro">
+    <meta property="og:description" content="What Lighthouse Macro is, how the Diagnostic Dozen framework works, and six places to start reading.">
+    <meta property="og:image" content="https://lighthousemacro.com/og-image.png">
+    <meta property="og:url" content="https://lighthousemacro.com/start-here.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LHMacro">
+    <meta name="twitter:title" content="Start Here | Lighthouse Macro">
+    <meta name="twitter:description" content="What Lighthouse Macro is, how the Diagnostic Dozen framework works, and six places to start reading.">
+    <meta name="twitter:image" content="https://lighthousemacro.com/og-image.png">
+    <link rel="canonical" href="https://lighthousemacro.com/start-here.html">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[
+      {"@type":"Organization","@id":"https://lighthousemacro.com/#org","name":"Lighthouse Macro","url":"https://lighthousemacro.com","email":"advisory@lighthousemacro.com","description":"Institutional-grade macro and economic intelligence, built on framework and process.","slogan":"Macro, Illuminated.","sameAs":["https://x.com/LHMacro","https://research.lighthousemacro.com"],"founder":{"@id":"https://lighthousemacro.com/#bob"}},
+      {"@type":"Person","@id":"https://lighthousemacro.com/#bob","name":"Bob Sheehan","honorificSuffix":"CFA, CMT","jobTitle":"Founder & Macro Strategist","worksFor":{"@id":"https://lighthousemacro.com/#org"},"sameAs":["https://x.com/LHMacro"]},
+      {"@type":"WebSite","@id":"https://lighthousemacro.com/#site","url":"https://lighthousemacro.com","name":"Lighthouse Macro","publisher":{"@id":"https://lighthousemacro.com/#org"}}
+    ]}
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2389BB">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ocean:#2389BB; --dusk:#FF6723; --sky:#89CCFF; --deep:#123456; --abyss:#111823;
+  --sea:#00BB89; --glacier:#F4F7F9; --ice:#D1E1F1; --foam:#FFFFFF; --doldrums:#898989;
+  --lift:#1A3A5A; --slate:#2A4A6A; --steel:#9BB1C5;
+  --ink:#123456; --ink-2:#3D5670; --ink-3:#5B7189; --line:#D1E1F1;
+  --w:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:var(--glacier);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+.accent{height:5px;background:linear-gradient(90deg,var(--ocean) 66.66%,var(--dusk) 66.66%)}
+.eyebrow{font:500 11.5px 'Source Code Pro',monospace;letter-spacing:.22em;text-transform:uppercase;color:var(--ocean)}
+h1,h2,h3{font-family:Montserrat,sans-serif;letter-spacing:-.02em;line-height:1.12}
+h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;margin:10px 0 12px}
+h3{font-size:18px;font-weight:700}
+.lede{color:var(--ink-2);max-width:680px;font-size:17px}
+section{padding:84px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:7px;border:1px solid transparent;transition:transform .15s,background .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--dusk);color:#fff}
+.btn-ghost-dark{border-color:rgba(137,204,255,.55);color:#fff}
+.btn-ghost-dark:hover{border-color:var(--sky)}
+.btn-ocean{background:var(--ocean);color:#fff}
+.btn-line{border-color:var(--line);color:var(--ink);background:var(--foam)}
+.more{font-weight:600;color:var(--ocean);font-size:14.5px}
+.more:hover{text-decoration:underline}
+
+/* chrome: dark */
+.nav{position:sticky;top:0;z-index:20;background:rgba(18,52,86,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--slate)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font:800 15px Montserrat;letter-spacing:.04em;color:#fff}
+.brand i{font-style:normal;color:var(--sky)}
+.brand svg{height:26px;width:auto}
+.nav nav{display:flex;gap:24px;font-size:14.5px;color:#C9D8E6}
+.nav nav a:hover{color:#fff}
+.nav .right{margin-left:auto;display:flex;gap:10px;align-items:center}
+.nav .btn{padding:8px 15px;font-size:13.5px}
+.nav .signin{color:#C9D8E6;border-color:var(--slate)}
+
+.hero{position:relative;overflow:hidden;isolation:isolate;color:#fff;background:linear-gradient(165deg,var(--deep) 0%,var(--deep) 45%,var(--abyss) 130%);padding:104px 0 84px}
+.hero .grid,.dark .grid{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 90% 80% at 70% 30%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 90% 80% at 70% 30%,#000 40%,transparent 100%)}
+.sil{position:absolute;z-index:-1;right:4%;top:-6%;height:112%;width:auto;opacity:.09;pointer-events:none}
+.sil polygon{fill:var(--sky)}
+.hero .glow{position:absolute;z-index:-1;right:-10%;top:-30%;width:60%;height:120%;background:radial-gradient(closest-side,rgba(137,204,255,.13),transparent)}
+.hero .eyebrow{color:var(--sky)}
+.hero h1{font-size:clamp(38px,5.6vw,64px);font-weight:800;max-width:780px;margin:16px 0 20px}
+.hero p.sub{font-size:19px;color:#C9D8E6;max-width:620px;margin-bottom:32px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.rule{width:230px;height:4px;border-radius:2px;margin:52px 0 22px;background:linear-gradient(90deg,var(--ocean) 66.66%,var(--dusk) 66.66%)}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(137,204,255,.18);border-radius:10px;background:rgba(255,255,255,.04);max-width:880px}
+.proof div{padding:16px 20px;border-right:1px solid rgba(137,204,255,.14)}
+.proof div:last-child{border-right:0}
+.proof small{display:block;font:500 10.5px 'Source Code Pro',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:4px}
+.proof b{font-weight:600;font-size:14.5px;line-height:1.35;display:block}
+
+/* content: light */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.cards{display:grid;gap:18px}
+.c3{grid-template-columns:repeat(3,1fr)} .c2{grid-template-columns:repeat(2,1fr)} .c4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--foam);border:1px solid var(--line);border-radius:10px;padding:24px}
+a.card{display:block;transition:border-color .15s,transform .15s}
+a.card:hover{border-color:var(--ocean);transform:translateY(-2px)}
+.meta{font:500 11px 'Source Code Pro',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ocean);display:flex;justify-content:space-between;gap:10px}
+.meta span:last-child{color:var(--ink-3)}
+.card h3{margin:10px 0 8px}
+.card p{color:var(--ink-2);font-size:15px}
+.feature{grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between;border-top:3px solid var(--ocean)}
+.feature h3{font-size:26px}
+.who .card{border-left:3px solid var(--ocean)} .who .card.op{border-left-color:var(--dusk)}
+.who .card.op .meta{color:var(--dusk)}
+.who h3{font-size:21px}
+.band{background:var(--ice)}
+.engine li{list-style:none;color:var(--ink-2);font-size:14.5px;padding:7px 0;border-top:1px solid var(--line)}
+.engine .meta span:last-child{color:var(--dusk)}
+.pillars{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:26px}
+.pillars div{background:var(--foam);padding:14px 16px}
+.pillars small{font:500 10px 'Source Code Pro',monospace;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;display:block}
+.pillars b{font:700 14px Montserrat;display:block;margin:2px 0}
+.pillars span{font:500 17px 'Source Code Pro',monospace;color:var(--ink)}
+.asof{font:400 11.5px 'Source Code Pro',monospace;color:var(--ink-3);margin-top:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* dark band */
+.dark{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(200deg,var(--deep),var(--abyss) 120%);color:#fff}
+.dark .eyebrow{color:var(--sky)} .dark .lede{color:#C9D8E6}
+.dark .sil{right:auto;left:-3%;top:4%;height:104%;opacity:.07}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.list{list-style:none;margin:22px 0 28px}
+.list li{padding:10px 0 10px 26px;border-top:1px solid rgba(137,204,255,.16);position:relative;color:#DCE7F1;font-size:15.5px}
+.list li:before{content:"";position:absolute;left:2px;top:19px;width:10px;height:3px;background:var(--dusk);border-radius:2px}
+.panel{background:rgba(255,255,255,.05);border:1px solid rgba(137,204,255,.2);border-radius:12px;padding:26px}
+.panel h3{margin:8px 0 10px;font-size:20px}
+.panel p{color:#C9D8E6;font-size:15px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.kv small{font:500 10px 'Source Code Pro',monospace;letter-spacing:.16em;color:var(--sky);text-transform:uppercase;display:block}
+.kv b{font:700 17px Montserrat}
+
+/* pricing */
+.price .card{display:flex;flex-direction:column}
+.price .amt{font:800 38px Montserrat;letter-spacing:-.02em;margin:10px 0 2px}
+.price .amt small{font:500 14px Inter;color:var(--ink-3);letter-spacing:0}
+.price ul{list-style:none;margin:16px 0 22px;flex:1}
+.price li{font-size:14px;color:var(--ink-2);padding:7px 0;border-top:1px solid var(--line)}
+.price .btn{justify-content:center}
+.price .best{border:2px solid var(--ocean);position:relative}
+.price .best:before{content:"INCLUDES PHAROS";position:absolute;top:-11px;left:20px;background:var(--ocean);color:#fff;font:600 10px 'Source Code Pro',monospace;letter-spacing:.14em;padding:3px 9px;border-radius:4px}
+.fine{color:var(--ink-3);font-size:13.5px;margin-top:20px;max-width:820px}
+.fine a{color:var(--ocean)}
+
+blockquote{font-size:16px;color:var(--ink);line-height:1.6}
+.who-said{margin-top:16px;font-size:13.5px;color:var(--ink-3)} .who-said b{display:block;color:var(--ink);font-size:14.5px}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.cv div{padding:13px 0;border-top:1px solid var(--line)}
+.cv small{font:500 10.5px 'Source Code Pro',monospace;letter-spacing:.14em;color:var(--ocean);text-transform:uppercase;display:block}
+.cv b{font:700 14.5px Montserrat}
+.svc .card p{font-size:14.5px}
+
+.close{text-align:left}
+.close h2{font-size:clamp(30px,4.4vw,52px)}
+.close h2 i{font-style:normal;color:var(--dusk)}
+footer{background:var(--abyss);color:var(--steel);padding:44px 0 36px;font-size:13.5px}
+footer .top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+footer .links a{color:var(--sky);margin-right:6px}
+footer p{max-width:900px;font-size:12px;line-height:1.6;color:#6F849A}
+.note{background:var(--dusk);color:#fff;font:500 12px 'Source Code Pro',monospace;text-align:center;padding:6px}
+
+@media(max-width:900px){
+  .c3,.c4,.split,.about{grid-template-columns:1fr} .c2{grid-template-columns:1fr}
+  .feature{grid-column:auto} .pillars{grid-template-columns:repeat(3,1fr)}
+  .nav nav{display:none} .proof{grid-template-columns:1fr} .proof div{border-right:0;border-bottom:1px solid rgba(137,204,255,.14)}
+  section{padding:60px 0} .hero{padding:72px 0 60px} .sil{opacity:.06}
+}
+
+/* Ocean-forward variant (default). Toggle removes body.ocean to compare with Deep-only. */
+.mark polygon{fill:var(--sky)}
+body.ocean .hero{background:linear-gradient(102deg,var(--deep) 0%,var(--deep) 40%,#1B6A9A 78%,var(--ocean) 108%)}
+body.ocean .hero .sil{opacity:.16} body.ocean .hero .sil polygon{fill:#fff}
+body.ocean .close{background:var(--ocean)} body.ocean .close .lede{color:#fff} body.ocean .close .grid{display:none}
+body.ocean .who.band{background:var(--foam)} body.ocean .who .card{background:var(--glacier)}
+body.ocean h2{color:var(--deep)} body.ocean .dark h2,body.ocean .close h2{color:#fff}
+body.ocean .pillars div{border-top:3px solid var(--ocean)}
+body.ocean .nav{border-bottom:2px solid var(--ocean)}
+.note button{font:600 11px 'Source Code Pro',monospace;margin-left:12px;padding:3px 10px;border-radius:4px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer}
+
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:26px;background:var(--foam)}
+.seg a{padding:9px 18px;font-weight:600;font-size:14px;color:var(--ink-2)} .seg a.on{background:var(--deep);color:#fff}
+.svc .desc{font-size:14px;min-height:92px} .svc .card.op{border-top:3px solid var(--dusk)} .svc .card{border-top:3px solid var(--ocean)}
+.svc .card.op .meta{color:var(--dusk)}
+body.ocean #readers .card{background:var(--foam)}
+.solo h2{max-width:640px}.solo .list{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;max-width:900px}
+@media(max-width:900px){.solo .list{grid-template-columns:1fr}}
+.callout{margin-top:22px;border-left:3px solid var(--dusk);background:var(--foam);border-radius:0 8px 8px 0;padding:16px 20px;color:var(--ink-2);font-size:15px}
+.callout b{display:block;font:700 17px Montserrat;color:var(--ink);margin-bottom:6px}
+.process{margin-top:56px;padding-top:40px;border-top:1px solid var(--line)}
+.process .ph{margin-bottom:22px}.process .ph h3{font-size:24px;margin:8px 0 6px}.process .ph p{color:var(--ink-2);font-size:17px}
+.process .card{border-top:3px solid var(--deep)}
+.slim{padding:56px 0}.slim h2{font-size:26px}.slim .card{padding:18px 20px}.slim .card h3{margin:8px 0 0}
+/* dark bands use the Pharos sign-in recipe: Deep with an Ocean glow from the upper right */
+#pharos.dark{background:radial-gradient(1200px 600px at 70% -10%,rgba(35,137,187,.30),transparent 62%),var(--deep)}
+/* Bob 9/28: Ice is the reading background (easier on his eyes than Glacier). Glacier becomes the alternate band. */
+:root{--line:#B5CBE0}
+body{background:var(--ice)}
+.band,body.ocean .who.band{background:var(--glacier)}
+body.ocean .who .card{background:var(--foam)}
+
+/* start-here: one reading column on Ice */
+.sh-hero{padding:72px 0 56px}
+.sh-hero h1{font-size:clamp(34px,5vw,54px);margin:14px 0 0}
+.sh{padding:56px 0 72px}
+.sh .col{max-width:760px}
+.sh p{font-size:17px;line-height:1.7;color:var(--ink);margin:0 0 20px}
+.sh h2{font-size:clamp(24px,3vw,32px);margin:44px 0 14px}
+.sh ul{margin:0 0 22px 22px}
+.sh li{font-size:17px;line-height:1.65;color:var(--ink);margin-bottom:10px}
+.sh a{color:var(--ocean);font-weight:500}
+.sh a:hover{text-decoration:underline}
+.sh .sh-cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 34px}
+.sh .sh-cta a.btn-primary{color:#fff}
+.sh .sh-cta a.btn-line{color:var(--ink)}
+.sh .sh-cta a:hover{text-decoration:none}
+</style>
+
+</head>
+<body class="ocean sale-over">
+<div class="accent"></div>
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html">
+    <svg viewBox="60 60 1160 2780" aria-hidden="true"><g class="mark"><polygon points="625,95 1042,395 1042,475 208,475 208,395"/><polygon points="303,590 397,590 397,865 853,865 853,590 947,590 947,990 1107,990 1107,1109 150,1109 150,990 303,990"/><polygon points="270,1213 994,1213 983,1326 199,1691"/><polygon points="1052,1710 1094,2121 94,2606 152,2155"/><polygon points="1146,2526 1177,2806 603,2806"/></g></svg>
+    LIGHTHOUSE <i>MACRO</i></a>
+  <nav><a href="index.html#research">Research</a><a href="index.html#framework">Framework</a><a href="index.html#pharos">Pharos</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="index.html#about">About</a></nav>
+  <div class="right"><a class="btn signin" href="https://pharos.lighthousemacro.com">Sign in</a><a class="btn btn-primary" href="index.html#pricing">Join the Watch</a></div>
+</div></header>
+
+<div class="hero sh-hero">
+  <div class="grid"></div><div class="glow"></div>
+  <svg class="sil" viewBox="60 60 1160 2780" aria-hidden="true"><polygon points="625,95 1042,395 1042,475 208,475 208,395"/><polygon points="303,590 397,590 397,865 853,865 853,590 947,590 947,990 1107,990 1107,1109 150,1109 150,990 303,990"/><polygon points="270,1213 994,1213 983,1326 199,1691"/><polygon points="1052,1710 1094,2121 94,2606 152,2155"/><polygon points="1146,2526 1177,2806 603,2806"/></svg>
+  <div class="wrap">
+    <span class="eyebrow">// New here</span>
+    <h1>Start Here</h1>
+  </div>
+</div>
+
+<section class="sh"><div class="wrap"><div class="col">
+<p>Welcome to Lighthouse Macro. We write institutional-grade macro research for two kinds of readers. The first trades on the macro picture: funds, allocators, individual investors. The second lives with it without ever placing a trade: business owners, operators, the people running budgets and payrolls and hiring plans. The same data answers different questions for each of them, and we try to answer both.</p>
+<p><a href="index.html">Lighthouse Macro</a> was founded by <a href="index.html#about">Bob Sheehan, CFA, CMT</a> after roles on a macro-equity strategy &amp; multi-asset book at Bank of America Private Bank. Following that, he landed in more traditional macro focused roles on the sell side boutique Trahan Macro Research and then back on the buyside, as the 2nd member of Strom Capital Management, a Discretionary Macro fund where he produced research directly alongside the CIO.</p>
+<p>Most recently he was VP of Data &amp; Analytics at EquiLend. If you’d rather hear how we think before you read it, start with his conversation on Blockworks’ Forward Guidance, <a href="https://www.youtube.com/watch?v=OHe0A0ewJh0">How To Trade The New Warsh Fed</a>.</p>
+<p>The philosophy fits in a line: flows over stocks. How fast something is changing usually tells you more, and sooner, than where it sits. By the time a headline number moves, the story underneath it is mostly over.</p>
+<h2>The framework</h2>
+<p>Everything we publish runs through one framework, the <a href="framework.html">Diagnostic Dozen</a>: twelve pillars of the economy across three engines. Each pillar got its own free deep dive on what it measures, how it connects to the others, and the thresholds we watch.</p>
+<ul>
+  <li><strong>Macro Dynamics: </strong><a href="https://lighthousemacro.substack.com/p/labor-the-source-code">Labor</a>, <a href="https://lighthousemacro.substack.com/p/prices-the-transmission-belt">Prices</a>, <a href="https://lighthousemacro.substack.com/p/growth-the-second-derivative">Growth</a>, <a href="https://lighthousemacro.substack.com/p/housing-the-collateral-engine">Housing</a>, <a href="https://lighthousemacro.substack.com/p/consumer-the-last-domino">Consumer</a>, <a href="https://lighthousemacro.substack.com/p/business-the-forward-commitment">Business</a>, <a href="https://lighthousemacro.substack.com/p/trade-the-pipeline">Trade</a></li>
+  <li><strong>Monetary Mechanics: </strong><a href="https://lighthousemacro.substack.com/p/government-the-fiscal-overhang">Government</a>, <a href="https://lighthousemacro.substack.com/p/financial-the-cascade">Financial</a>, <a href="https://lighthousemacro.substack.com/p/plumbing-the-invisible-infrastructure">Plumbing</a></li>
+  <li><strong>Market Structure: </strong><a href="https://lighthousemacro.substack.com/p/market-structure-the-weight-of-evidence">Market Structure</a>, <a href="https://lighthousemacro.substack.com/p/sentiment-and-positioning-the-contrarian-216">Sentiment &amp; Positioning</a></li>
+</ul>
+<p>The piece that introduced it, <a href="https://lighthousemacro.substack.com/p/why-most-americans-dont-care-about">Why Most Americans Don’t Care About Your Market Call</a>, is the best place to see why it’s built this way. <a href="https://lighthousemacro.substack.com/p/the-foundation-is-set-now-we-build">The Foundation Is Set. Now We Build.</a> ties all twelve together.</p>
+<h2>Six places to start</h2>
+<ul>
+  <li><strong><a href="https://lighthousemacro.substack.com/p/two-economies">Two Economies.</a></strong> The headline consumer data averages two populations that have almost nothing in common. One is spending down an asset base that keeps appreciating. The other is being repossessed.</li>
+  <li><strong><a href="https://lighthousemacro.substack.com/p/the-beacon-banking-on-nonbanks">Banking on Nonbanks.</a></strong> One New York Fed paper, walked through our framework piece by piece. It made FT Alphaville’s reading list.</li>
+  <li><strong><a href="https://lighthousemacro.substack.com/p/the-fed-put-retired">The Fed Put, Retired.</a></strong> For fifteen years every selloff was bought on faith that the Fed would step in. The new chair spent his career arguing against the rescue.</li>
+  <li><strong><a href="https://lighthousemacro.substack.com/p/markets-turn-in-order">Markets Turn in Order.</a></strong> The leading parts of the market turn first and quietly, the lagging parts last and loudly. A framework earns its keep in the gap between the two.</li>
+  <li><strong><a href="https://lighthousemacro.substack.com/p/cracks-in-the-foundation-the-us-treasury">From Foundations to Fault Lines.</a></strong> Part I asked in August 2025 whether the Treasury market’s foundations were weakening. <a href="https://lighthousemacro.substack.com/p/from-foundations-to-fault-lines-part">Part IV</a>, The 5% Long Bond Is Back, is what the answer turned out to be.</li>
+  <li><strong><a href="https://lighthousemacro.substack.com/p/one-step-removed-private-credit">One Step Removed.</a></strong> The first Marginal Matters: the banks never really left private credit, and the Fed’s own data shows where they went.</li>
+</ul>
+<h2>What we publish</h2>
+<ul>
+  <li><strong>Marginal Matters: </strong>free. One overlooked mechanic, relationship or paper, explained against the data.</li>
+  <li><strong>The Beam: </strong>the tactical read on the print that just hit.</li>
+  <li><strong>The Beacon: </strong>long-form, one thesis taken all the way down.</li>
+  <li><strong>The Horizon: </strong>the forward view, and where the risk sits.</li>
+  <li><strong>The Chartbook: </strong>the data, laid out to be looked at.</li>
+  <li><strong>Crosscurrents: </strong>our live book. The framework turned into positions, with the rules for getting in, sizing and getting out set before the trade.</li>
+  <li><strong><a href="https://pharos.lighthousemacro.com">Pharos</a>: </strong>the terminal. The research, the charts and the dashboards in one place.</li>
+</ul>
+<p>The framework, the history and Marginal Matters are free. The live readings, the positioning and the forward views sit with paid subscribers.</p>
+<h2>Inside Pharos</h2>
+<p><a href="https://pharos.lighthousemacro.com">Pharos</a> is the terminal the research is built on. Every board recomputes from our master database with each build, and every chart carries its own read and its sources. It comes with the Complete subscription.</p>
+<p class="sh-cta"><a class="btn btn-primary" href="index.html#pricing">Join the Watch</a><a class="btn btn-line" href="https://pharos.lighthousemacro.com">Sign in to Pharos</a></p>
+<p>For decks, monthly/quarterly meetings, or advisory work, write to <a href="mailto:advisory@lighthousemacro.com">advisory@lighthousemacro.com</a>.</p>
+<p>For custom research requests or institutional settings, write to <a href="mailto:research@lighthousemacro.com">research@lighthousemacro.com</a>.</p>
+</div></div></section>
+
+<section class="dark close"><div class="grid"></div><div class="wrap">
+  <h2>Don't navigate in the dark<i>.</i></h2>
+  <p class="lede" style="margin:8px 0 26px">Institutional-grade macro, in your inbox.</p>
+  <a class="btn btn-primary" href="index.html#pricing">Join the Watch</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="top">
+    <div class="brand">LIGHTHOUSE <i>MACRO</i></div>
+    <div class="links"><a href="https://lighthousemacro.com">Lighthouse Macro</a>|&nbsp;<a href="index.html#research">Research</a>|&nbsp;<a href="https://pharos.lighthousemacro.com">Pharos</a>|&nbsp;<a href="https://lighthousemacro.substack.com/p/start-here/">Substack</a>|&nbsp;<a href="https://x.com/LHMacro">@LHMacro</a></div>
+  </div>
+  <p>© 2026 Lighthouse Macro, LLC. Lighthouse Macro, LLC provides research and advisory services that are informational and educational in nature. Nothing published or communicated by Lighthouse Macro constitutes personalized investment advice, a solicitation, or a recommendation to buy, sell, or hold any security. All investment decisions are the sole responsibility of the reader or client. Past performance is not indicative of future results. Lighthouse Macro, LLC is not a registered investment advisor.</p>
+</div></footer>
+</body>
+</html>
