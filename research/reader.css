@@ -128,3 +128,32 @@ footer{background:var(--deep);color:#9fb3c4;padding:3.4rem 0 0;margin-top:2rem;}
   .nav-toggle{display:block;}
 }
 @media (max-width:560px){.rgrid{grid-template-columns:1fr;}}
+
+/* === system B (2026-10-02): same chrome as the homepage. Dark frame, light content.
+   Ice is the reading background, cards stay white, borders take the darker tint. === */
+:root{--abyss:#111823;--slate:#2A4A6A;--steel:#9BB1C5;--line:#B5CBE0;}
+body{background:var(--ice);}
+nav{background:rgba(18,52,86,0.97);border-bottom:2px solid var(--ocean);}
+.nav-logo{color:#fff;}
+.nav-logo span{color:var(--sky);}
+.nav-links a{color:#C9D8E6;}
+.nav-links a:hover{color:#fff;}
+.nav-cta,.nav-cta:hover{background:var(--dusk);filter:none;}
+.nav-cta.alt{background:transparent;color:#C9D8E6 !important;border:1px solid var(--slate);}
+.nav-cta.alt:hover{background:transparent;color:#fff !important;border-color:var(--sky);}
+.nav-toggle span{background:#fff;}
+@media (max-width:1000px){.nav-links{background:var(--deep);border-bottom:1px solid var(--slate);}}
+.rr-hero{background:linear-gradient(102deg,var(--deep) 0%,var(--deep) 40%,#1B6A9A 78%,var(--ocean) 108%);border-bottom:none;color:#C9D8E6;}
+.rr-hero h1{color:#fff;}
+.rr-hero .blue{color:var(--sky);}
+.rr-hero .mono{color:var(--sky);}
+.rr-hero p a{color:var(--sky);}
+.rr-rss{border-color:rgba(137,204,255,0.55);color:#fff;}
+.rr-rss:hover{border-color:var(--sky);color:#fff;}
+.paywall{background:var(--paper);}
+/* Paid pieces carry no teaser any more, so the fade above the box only smeared the
+   title; and .art-body a was painting the member button's label Ocean on Ocean. */
+.paywall::before{display:none;}
+.art-body .pw-go{color:#fff;text-decoration:none;}
+.art-body .pw-ghost{color:var(--ink);text-decoration:none;}
+footer{background:var(--abyss);}

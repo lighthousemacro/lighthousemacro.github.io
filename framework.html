@@ -374,6 +374,39 @@
             .master-grid,.pillar-grid,.book-metrics,.auth-stats { grid-template-columns:1fr; }
             .hero-meta { font-size:0.62rem; }
         }
+        /* === system-b:start === */
+:root { --abyss:#111823; --slate:#2A4A6A; --steel:#9BB1C5; --line:#B5CBE0; }
+body { background:var(--ice); }
+/* chrome: Deep nav with the Ocean rule, like the homepage */
+nav { background:rgba(18,52,86,0.97); border-bottom:2px solid var(--ocean); }
+.nav-logo { color:#fff; }
+.nav-logo span { color:var(--sky); }
+.nav-links a { color:#C9D8E6; }
+.nav-links a:hover, .nav-links a.active { color:#fff; }
+.nav-cta, .nav-cta:hover { background:var(--dusk); }
+.nav-cta.alt { background:transparent; color:#C9D8E6 !important; border:1px solid var(--slate); }
+.nav-cta.alt:hover { background:transparent; color:#fff !important; border-color:var(--sky); }
+.nav-toggle span { background:#fff; }
+@media (max-width:1000px) { .nav-links { background:var(--deep); border-bottom:1px solid var(--slate); } }
+/* hero: Deep into Ocean (the approved Ocean-forward variant) */
+.hero { background:linear-gradient(102deg,var(--deep) 0%,var(--deep) 40%,#1B6A9A 78%,var(--ocean) 108%); color:#fff; }
+.hero:has(.ticker) { padding-bottom:0; }
+.hero-meta { border-bottom-color:rgba(137,204,255,0.22); color:#C9D8E6; }
+.hero-meta .coord, .hero-eyebrow { color:var(--sky); }
+.hero .wordmark { color:#fff; }
+.hero .wordmark .blue { color:var(--sky); }
+.hero-sub { color:#C9D8E6; }
+.hero .bigbtn.ghost { border-color:rgba(137,204,255,0.55); color:#fff; }
+.hero .bigbtn.ghost:hover { border-color:var(--sky); color:#fff; }
+.hero .stat-strip { border-top-color:rgba(137,204,255,0.22); }
+.hero .stat-strip .col .k { color:var(--steel); }
+.hero .stat-strip .col .v { color:var(--sky); }
+/* content: Ice is the reading background, Glacier the alternate band, cards stay white */
+.mist, .ticker { background:var(--glacier); }
+/* dark bands use the Pharos sign-in recipe */
+.navy-sec { background:radial-gradient(1200px 600px at 70% -10%,rgba(35,137,187,0.30),transparent 62%),var(--deep); }
+footer { background:var(--abyss); }
+/* === system-b:end === */
     </style>
 
 </head>
@@ -388,16 +421,15 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links">
-            <li><a href="framework.html" class="active">The Diagnostic Dozen</a></li>
-            <li><a href="methodology.html">Methodology</a></li>
-            <li><a href="index.html#dashboard">Live Read</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-            <li><a href="research/" class="nav-cta alt">Reading Room</a></li>
-            <li><a href="https://pharos.lighthousemacro.com" class="nav-cta">Pharos</a></li>
-        </ul>
+                <li><a href="framework.html" class="active">Framework</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="index.html#pharos">Pharos</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="https://pharos.lighthousemacro.com" class="nav-cta alt">Sign in</a></li>
+                <li><a href="index.html#pricing" class="nav-cta">Join the Watch</a></li>
+            </ul>
     </div>
 </nav>
 
@@ -598,11 +630,11 @@
                 <h5>// Sections</h5>
                 <a href="index.html#framework">Framework</a>
                 <a href="methodology.html">Methodology</a>
-                <a href="index.html#dashboard">Live Read</a>
+                <a href="index.html#framework">Live Read</a>
                 <a href="research/">Reading Room</a>
                 <a href="https://pharos.lighthousemacro.com">Pharos</a>
                 <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="index.html#services">Contact</a>
             </div>
             <div class="foot-col">
                 <h5>// Elsewhere</h5>
