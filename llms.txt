@@ -4,9 +4,37 @@
 
 Lighthouse Macro reads the economic cycle through the Diagnostic Dozen: twelve macro pillars across three engines (Macro Dynamics, Monetary Mechanics, Market Structure). The pillars feed proprietary composites and a master risk index (MRI), surfaced on a public live dashboard. The framework serves two audiences: market participants (advisors, allocators, CIOs) and operators (CEOs, CFOs, founders) who need macro for capital, hiring, and capex decisions.
 
+## Start here
+- [Start Here](https://lighthousemacro.com/start-here.html): what Lighthouse Macro is, how the framework works, and where to begin
+- [The Diagnostic Dozen](https://lighthousemacro.com/framework.html): the twelve-pillar framework and its three engines, free to read in full
+- [Methodology](https://lighthousemacro.com/methodology.html): principles, process, the three-layer recession framework, and the technical guardrails
+
+## The framework: Macro Dynamics (the real economy, 7 pillars)
+- [Labor: The Source Code](https://lighthousemacro.com/research/labor-the-source-code.html)
+- [Prices: The Transmission Belt](https://lighthousemacro.com/research/prices-the-transmission-belt.html)
+- [Growth: The Second Derivative](https://lighthousemacro.com/research/growth-the-second-derivative.html)
+- [Housing: The Collateral Engine](https://lighthousemacro.com/research/housing-the-collateral-engine.html)
+- [Consumer: The Last Domino](https://lighthousemacro.com/research/consumer-the-last-domino.html)
+- [Business: The Forward Commitment](https://lighthousemacro.com/research/business-the-forward-commitment.html)
+- [Trade: The Pipeline](https://lighthousemacro.com/research/trade-the-pipeline.html)
+
+## The framework: Monetary Mechanics (fiscal, credit, and Fed liquidity, 3 pillars)
+- [Government: The Fiscal Overhang](https://lighthousemacro.com/research/government-the-fiscal-overhang.html)
+- [Financial: The Cascade](https://lighthousemacro.com/research/financial-the-cascade.html)
+- [Plumbing: The Invisible Infrastructure](https://lighthousemacro.com/research/plumbing-the-invisible-infrastructure.html)
+
+## The framework: Market Structure (breadth, positioning, sentiment, 2 pillars)
+- [Market Structure: The Weight of Evidence](https://lighthousemacro.com/research/market-structure-the-weight-of-evidence.html)
+- [Sentiment & Positioning: The Contrarian Edge](https://lighthousemacro.com/research/sentiment-and-positioning-the-contrarian-216.html)
+
 ## Research
-- [The Reading Room](https://research.lighthousemacro.com): the publication stack on Substack, including the Beacon (weekly flagship), Beam (twice weekly), Note (free), Chartbook, and Horizon (monthly outlook)
-- [The Diagnostic Dozen](https://lighthousemacro.com/framework.html): the twelve-pillar framework, free educational series
+- [The Reading Room](https://lighthousemacro.com/research/): every published piece, indexed on this domain
+- [Research on Substack](https://research.lighthousemacro.com): where the publications are delivered. The Beacon (long-form flagship), The Beam (short, single-thesis), Notes (free), The Chartbook, and The Horizon (forward outlook)
+
+## Pharos and membership
+- [Pharos](https://lighthousemacro.com/pharos/): the research terminal the publications are written from, with live boards and 60+ proprietary indicators
+- [Pricing](https://lighthousemacro.com/#pricing): the Diagnostic Dozen, the methodology, and the free Notes are open to everyone. Research + Pharos membership is $500 a year or $50 a month. The Watch is $1,500 a year
+- Advisory for firms and operators (Advisor, Institutional, Fractional CIO for RIAs with $200M to $2B in AUM, and Operator): advisory@lighthousemacro.com
 
 ## About
 - [Founder: Bob Sheehan, CFA, CMT](https://lighthousemacro.com/#about): former Associate PM at Bank of America Private Bank, VP Data & Analytics at EquiLend
