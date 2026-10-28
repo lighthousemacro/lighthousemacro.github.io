@@ -72,6 +72,9 @@ section{padding:var(--s9) 0}
 .g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
 .g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
 .g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+@media(min-width:900px){.g5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1180px){.g5{grid-template-columns:repeat(5,minmax(0,1fr))}}
 .card{background:#fff;border:1.5px solid rgba(35,137,187,.22);border-radius:var(--radius-fluid);padding:var(--s5) var(--s5) var(--s6)}
 .mark{fill:currentColor;display:block}
 .more{font-weight:600;color:var(--ocean);font-size:15px}.more:hover{color:var(--dusk)}
@@ -265,7 +268,7 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
 
 <header class="nav"><div class="wrap">
   <a class="wm" href="index.html" aria-label="Lighthouse Macro home"><svg class="mark" viewBox="590 288 416 1024" aria-hidden="true"><path d="M794 293L950 405V435H638V405Z"/><path d="M674 478H709V581H879V478H915V628H975V672H617V628H674Z"/><path d="M661 711H932L928 753L635 890Z"/><path d="M954 897L970 1051L596 1232L617 1064Z"/><path d="M989 1203L1001 1307H786Z"/></svg><span>LIGHTHOUSE <b>MACRO</b></span></a>
-  <nav id="site-nav" aria-label="Site"><a href="index.html#research">Research</a><a href="index.html#framework">Framework</a><a href="index.html#pharos">Pharos</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="index.html#about">About</a><a class="signin-m" href="https://pharos.lighthousemacro.com">Sign in to Pharos</a><a class="btn btn-dusk" href="https://lighthousemacro.substack.com/subscribe?plan=yearly&amp;utm_source=lhm_site&amp;utm_medium=cta&amp;utm_campaign=research_pharos">Get Research + Pharos · $500/yr</a></nav>
+  <nav id="site-nav" aria-label="Site"><a href="index.html#research">Research</a><a href="index.html#framework">Framework</a><a href="index.html#pharos">Pharos</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="index.html#about">About</a><a class="signin-m" href="https://pharos.lighthousemacro.com">Sign in to Pharos</a><a class="btn btn-dusk" href="https://lighthousemacro.substack.com/subscribe?plan=yearly&amp;utm_source=lhm_site&amp;utm_medium=cta&amp;utm_campaign=research_pharos">Join the Watch · $500/yr</a></nav>
   <button class="menu" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
   <div class="right"><a class="signin" href="https://pharos.lighthousemacro.com">Sign in</a><a class="btn btn-dusk" href="https://lighthousemacro.substack.com/subscribe?plan=yearly&amp;utm_source=lhm_site&amp;utm_medium=cta&amp;utm_campaign=research_pharos">Get Research + Pharos<span class="nav-price"> · $500/yr</span></a></div>
 </div>
