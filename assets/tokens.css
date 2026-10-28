@@ -1,0 +1,39 @@
+/* Lighthouse Macro site tokens. Source: design handoff Oct 2026 (Outputs/design_system_2026-10-28_claude_design). Values are the handoff values, verbatim.
+   Palette note for Bob: --sky #23BBFF and --ink #0A1628 are the handoff names; the June 2026 locked palette has Sky #89CCFF (here --light-sky) and Deep #123456. */
+/* Lighthouse Macro — site tokens (Oct 2026)
+   Drop into the site's global stylesheet. All values are final. */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@1,400&display=swap");
+
+:root{
+  /* Brand */
+  --navy:#123456;        /* brand ground: nav, hero, Pharos band, footer */
+  --ocean:#2389BB;       /* primary: links, borders, headings on light, chart primary */
+  --sky:#23BBFF;         /* secondary accent, 3rd chart line */
+  --light-sky:#89CCFF;   /* mark + "MACRO" on Navy, soft washes */
+  --dusk:#FF6723;        /* action: CTAs, "Illuminated.", last-value pills, alert status */
+  /* Data-vis only */
+  --sea:#00BB89; --venus:#FF2389; --starboard:#238923; --port:#892323;
+  /* Neutrals */
+  --ink:#0A1628; --doldrums:#898989; --fog:#D1D1D1; --glacier:#F4F7F9; --white:#FFFFFF;
+  --navy-2:#0E2B47;      /* footer / deeper navy panel */
+  --navy-line:rgba(137,204,255,.18);
+
+  /* Type */
+  --font-display:'Montserrat',system-ui,sans-serif;   /* h1–h3, wordmark, prices */
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'Source Code Pro',ui-monospace,Menlo,monospace; /* eyebrows, data, dates */
+  --font-quote:'IBM Plex Serif',Georgia,serif;        /* italic testimonials only */
+
+  /* Scale (desktop) */
+  --fs-hero:64px; --fs-h2:40px; --fs-h3:22px; --fs-body:17px; --fs-small:14px; --fs-eyebrow:12px;
+
+  /* Hull (rigid) vs waterline (fluid) */
+  --rule:4px;            /* accent bars, featured-card top border */
+  --radius-hull:4px;     /* buttons, inputs, pills, data tiles */
+  --radius-fluid:14px;   /* cards, quotes, panels */
+  --accent-bar:linear-gradient(90deg,var(--ocean) 0 66%,var(--dusk) 66% 100%);
+
+  /* Spacing (4px base) */
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
+  --max:1180px;
+}
