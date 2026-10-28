@@ -72,6 +72,9 @@ section{padding:var(--s9) 0}
 .g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
 .g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
 .g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+@media(min-width:900px){.g5{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1180px){.g5{grid-template-columns:repeat(5,minmax(0,1fr))}}
 .card{background:#fff;border:1.5px solid rgba(35,137,187,.22);border-radius:var(--radius-fluid);padding:var(--s5) var(--s5) var(--s6)}
 .mark{fill:currentColor;display:block}
 .more{font-weight:600;color:var(--ocean);font-size:15px}.more:hover{color:var(--dusk)}
@@ -284,11 +287,12 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
       <a class="card post" href="https://lighthousemacro.substack.com/p/hiking-into-a-drain"><span class="meta">Research · Oct 24, 2026</span><h3>Hiking Into a Drain</h3><span class="go">Read →</span></a>
     
     </div>
-    <div class="grid g4" style="margin-top:var(--s7);">
+    <div class="grid g5" style="margin-top:var(--s7);">
       <div class="card prod"><div class="ic"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 32 58 16v32z" fill="#FF6723" opacity=".25"/><path d="M14 32 56 22v20z" fill="#FF6723" opacity=".55"/><line x1="14" y1="32" x2="58" y2="32" stroke="#FF6723" stroke-width="3" stroke-linecap="round"/><circle cx="14" cy="32" r="7" fill="none" stroke="#89CCFF" stroke-width="3.5"/></svg></div><span class="cad">Long-form</span><h3>The Beacon</h3><p>One thesis, taken all the way down, across the full framework.</p></div>
       <div class="card prod"><div class="ic"><svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke="#89CCFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g stroke="#FF6723"><line x1="32" y1="5" x2="32" y2="13"/><line x1="13" y1="13" x2="19" y2="19"/><line x1="51" y1="13" x2="45" y2="19"/></g><path d="M25 22 32 15l7 7"/><rect x="25" y="22" width="14" height="10"/><path d="M27 32v20h10V32M22 52h20"/></svg></div><span class="cad">Tactical</span><h3>The Beam</h3><p>The tactical read on the print that just hit. One idea, five charts.</p></div>
       <div class="card prod"><div class="ic"><svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke="#89CCFF" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="34" r="9" fill="#FF6723" stroke="none"/><line x1="6" y1="38" x2="58" y2="38"/><path d="M8 47q6-3 12 0t12 0 12 0 12 0" stroke-width="2.2" opacity=".8"/></svg></div><span class="cad">Forward view</span><h3>The Horizon</h3><p>The forward outlook, and where the risk sits.</p></div>
       <div class="card prod"><div class="ic"><svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke="#89CCFF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 14l16-2 16 4 16-3v37l-16 3-16-4-16 3z"/><path d="M12 38q6-6 12-3t12-3 12 2" stroke-width="2.2"/><path d="M42 22c0-4 5-4 5 0 0 3-2.5 6-2.5 6S42 25 42 22z" fill="#FF6723" stroke="none"/></svg></div><span class="cad">Visual compilation</span><h3>The Chartbook</h3><p>The cycle, chart by chart. The data, laid out to be looked at.</p></div>
+      <div class="card prod"><div class="ic"><svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke="#89CCFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="8" width="34" height="48" rx="3"/><line x1="18" y1="20" x2="36" y2="20"/><line x1="18" y1="28" x2="36" y2="28"/><line x1="18" y1="36" x2="30" y2="36"/><line x1="18" y1="44" x2="34" y2="44"/><line x1="52" y1="22" x2="52" y2="38" stroke="#FF6723"/><circle cx="52" cy="46" r="4.5" fill="#FF6723" stroke="none"/></svg></div><span class="cad">Free explainer</span><h3>Marginal Matters</h3><p>One lesser-discussed mechanic or relationship, explained against our own data. About ten minutes, and free.</p></div>
     </div>
   </div>
 </section>
