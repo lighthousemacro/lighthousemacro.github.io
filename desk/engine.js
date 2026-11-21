@@ -131,15 +131,33 @@
 
   function isoToday(date) {
     var d = date || new Date();
-    return d.toISOString().slice(0, 10);
+    var month = d.getMonth() + 1;
+    var day = d.getDate();
+    return d.getFullYear() + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
+  }
+
+  function realDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return "";
+    var parts = value.split("-");
+    var year = Number(parts[0]);
+    var month = Number(parts[1]);
+    var day = Number(parts[2]);
+    var parsed = new Date(Date.UTC(year, month - 1, day));
+    if (parsed.getUTCFullYear() !== year || parsed.getUTCMonth() !== month - 1 || parsed.getUTCDate() !== day) return "";
+    return value;
   }
 
   function ageDays(dateStr, today) {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr || "") || !/^\d{4}-\d{2}-\d{2}$/.test(today || "")) return null;
+    if (!realDate(dateStr) || !realDate(today)) return null;
     var a = Date.parse(dateStr + "T00:00:00Z");
     var b = Date.parse(today + "T00:00:00Z");
     if (isNaN(a) || isNaN(b)) return null;
     return Math.round((b - a) / 86400000);
+  }
+
+  function safeId(id) {
+    var cleaned = String(id == null ? "" : id).replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 48);
+    return cleaned.length >= 3 ? cleaned : "";
   }
 
   function sanitize(note) {
@@ -170,9 +188,20 @@
     next.status = next.status === "public" ? "public" : "draft";
     if (!seriesById(next.series)) next.series = "";
     if (!pillarById(next.pillar)) next.pillar = "";
-    if (next.date && !/^\d{4}-\d{2}-\d{2}$/.test(next.date)) next.date = "";
-    if (!next.id) next.id = uid();
+    next.date = realDate(next.date);
+    next.id = safeId(next.id) || uid();
     return next;
+  }
+
+  function publicSlug(note, library) {
+    var base = slugify(note.title) || "note";
+    var notes = library || [];
+    var clash = notes.some(function (other) {
+      return other && other.id !== note.id && (slugify(other.title) || "note") === base;
+    });
+    if (!clash) return base;
+    var suffix = safeId(note.id).toLowerCase().slice(0, 8) || "note";
+    return (base + "-" + suffix).replace(/-+$/g, "").slice(0, 80);
   }
 
   function blankNote(partial) {
@@ -289,11 +318,10 @@
     return links;
   }
 
-  function canonical(note) {
+  function canonical(note, library) {
     var clean = sanitize(note);
-    var slug = slugify(clean.title);
-    if (!slug) return "https://lighthousemacro.com/desk/";
-    return "https://lighthousemacro.com/desk/#/read/" + slug;
+    if (!slugify(clean.title)) return "https://lighthousemacro.com/desk/";
+    return "https://lighthousemacro.com/desk/#/read/" + publicSlug(clean, library);
   }
 
   function check(id, status, label, detail, fix) {
@@ -317,15 +345,15 @@
   }
 
   function sourceLinked(note) {
-    var prose = note.answer + "\n" + note.body;
+    var prose = (note.answer + "\n" + note.body).toLowerCase();
     var lines = sourceLines(note);
     var proseStrong = {};
-    strongNumbers(prose).forEach(function (n) { proseStrong[n] = true; });
+    strongNumbers(note.answer + "\n" + note.body).forEach(function (n) { proseStrong[n] = true; });
     for (var i = 0; i < lines.length; i++) {
-      var strong = strongNumbers(lines[i]);
-      for (var j = 0; j < strong.length; j++) if (proseStrong[strong[j]]) return true;
       var name = lines[i].split(/[—–:]/)[0].trim();
-      if (name.length >= 6 && prose.toLowerCase().indexOf(name.toLowerCase()) !== -1) return true;
+      if (name.length < 6 || prose.indexOf(name.toLowerCase()) === -1) continue;
+      var strong = strongNumbers(lines[i]);
+      if (!strong.length || strong.some(function (n) { return proseStrong[n]; })) return true;
     }
     return false;
   }
@@ -388,10 +416,13 @@
         : check("heading-order", "pass", "Heading order", "Section headings follow a single outline."));
     }
     var distinctive = contentWords(note.question);
-    var hay = (title + " " + heads.map(function (h) { return h.text; }).join(" ")).toLowerCase();
+    var tokens = {};
+    words(title + " " + heads.map(function (h) { return h.text; }).join(" ")).forEach(function (word) {
+      tokens[word.toLowerCase().replace(/[^a-z0-9-]/g, "")] = true;
+    });
     if (!wordCount(note.question)) {
       checks.push(check("question-overlap", "fail", "Question in the title", "Write the question the note exists to answer. The title or a heading should carry its words."));
-    } else if (distinctive.some(function (word) { return hay.indexOf(word) !== -1; })) {
+    } else if (distinctive.some(function (word) { return tokens[word]; })) {
       checks.push(check("question-overlap", "pass", "Question in the title", "The title or a heading uses the words of the question."));
     } else {
       checks.push(check("question-overlap", "warn", "Question in the title", "The question and the title do not share a distinctive word. Searchers type the question, not the headline's metaphor."));
@@ -411,7 +442,7 @@
     checks.push(ledeCount >= 40
       ? check("lede", "pass", "Opening", ledeCount + " words before the first break. The opening carries the note.")
       : check("lede", "fail", "Opening", ledeCount + " words in the opening. Give it at least 40, in your own sentences."));
-    var path = canonical(note);
+    var path = canonical(note, opts && opts.library);
     var where = note.specimen ? "Specimen page: " : note.status === "public" ? "Public page: " : "Draft page, in this browser: ";
     checks.push(slugify(title)
       ? check("public-path", "pass", "Where it lives", where + path)
@@ -464,7 +495,7 @@
     var age = ageDays(note.date, today);
     if (age == null) {
       checks.push(check("freshness", "fail", "Freshness", "Generative engines discount undated claims."));
-    } else if (age < -1) {
+    } else if (age < 0) {
       checks.push(check("freshness", "warn", "Freshness", "The date is in the future."));
     } else if (age > 400) {
       checks.push(check("freshness", "warn", "Freshness", "The date is more than a year old. Re-check the figures or say that the note is historical."));
@@ -706,19 +737,18 @@
     ].filter(Boolean).join("\n");
   }
 
-  function jsonLd(note, report) {
+  function jsonLd(note, report, library) {
     var clean = sanitize(note);
-    var rep = report || analyze(clean);
-    var slug = slugify(clean.title) || "note";
-    var url = canonical(clean);
+    var rep = report || analyze(clean, { library: library });
+    var url = canonical(clean, library);
     var pillar = pillarById(clean.pillar);
     var graph = [
       {
         "@type": "Article",
         headline: clean.title,
         description: clip(clean.dek || clean.answer, 160),
-        datePublished: clean.date || undefined,
-        dateModified: (clean.updatedAt || clean.date || "").slice(0, 10) || undefined,
+        datePublished: realDate((clean.updatedAt || "").slice(0, 10)) || clean.date || undefined,
+        dateModified: realDate((clean.updatedAt || "").slice(0, 10)) || clean.date || undefined,
         author: { "@type": "Person", name: "Bob Sheehan", honorificSuffix: "CFA, CMT", url: "https://lighthousemacro.com/#about" },
         publisher: { "@type": "Organization", name: "Lighthouse Macro", url: "https://lighthousemacro.com", logo: "https://lighthousemacro.com/assets/logo-navy-lightsky.png" },
         mainEntityOfPage: url,
@@ -744,7 +774,7 @@
         })
       });
     }
-    return { "@context": "https://schema.org", "@graph": graph, slug: slug };
+    return { "@context": "https://schema.org", "@graph": graph, slug: publicSlug(clean, library) };
   }
 
   function safeJson(obj) {
@@ -799,9 +829,9 @@
     return lines.join("\n");
   }
 
-  function social(note) {
+  function social(note, library) {
     var clean = sanitize(note);
-    var link = canonical(clean);
+    var link = canonical(clean, library);
     var sentence = (sentences(clean.answer)[0] || sentences(clean.dek)[0] || "").trim();
     var head = clean.title.trim() || "Lighthouse Macro";
     var text = sentence ? head + ". " + sentence : head;
@@ -815,16 +845,16 @@
     return out.length <= 280 ? out : out.slice(0, 279) + "…";
   }
 
-  function llms(note) {
+  function llms(note, library) {
     var clean = sanitize(note);
     var series = seriesById(clean.series);
     var pillar = pillarById(clean.pillar);
     var line = clip(sentences(clean.answer)[0] || clean.dek || clean.title, 180);
     var bits = [series && series.label, pillar && pillar.name, clean.date].filter(Boolean).join(" · ");
-    return "- [" + (clean.title || "Untitled") + "](" + canonical(clean) + "): " + line + (bits ? " " + bits + "." : "") + " Lighthouse Macro.";
+    return "- [" + (clean.title || "Untitled") + "](" + canonical(clean, library) + "): " + line + (bits ? " " + bits + "." : "") + " Lighthouse Macro.";
   }
 
-  function fullDocument(note, report) {
+  function fullDocument(note, report, library) {
     var clean = sanitize(note);
     var rep = report || analyze(clean);
     var robots = clean.status === "public" && !clean.specimen ? "index,follow" : "noindex,follow";
@@ -856,11 +886,11 @@
       "<title>" + escapeHtml((clean.title || "Note") + " | Lighthouse Macro") + "</title>",
       '<meta name="description" content="' + escapeHtml(description) + '">',
       '<meta name="robots" content="' + robots + '">',
-      '<link rel="canonical" href="' + escapeHtml(canonical(clean)) + '">',
+      '<link rel="canonical" href="' + escapeHtml(canonical(clean, library)) + '">',
       '<meta property="og:title" content="' + escapeHtml(clean.title || "Lighthouse Macro") + '">',
       '<meta property="og:description" content="' + escapeHtml(description) + '">',
       '<meta property="og:type" content="article">',
-      '<script type="application/ld+json">' + safeJson(jsonLd(clean, rep)) + "</script>",
+      '<script type="application/ld+json">' + safeJson(jsonLd(clean, rep, library)) + "</script>",
       "<style>" + style + "</style>",
       "</head>",
       "<body>",
@@ -873,19 +903,19 @@
     ].join("\n");
   }
 
-  function packet(note, report) {
+  function packet(note, report, library) {
     var clean = sanitize(note);
-    var rep = report || analyze(clean);
+    var rep = report || analyze(clean, { library: library });
     return {
-      slug: slugify(clean.title) || "note",
-      canonical: canonical(clean),
+      slug: publicSlug(clean, library),
+      canonical: canonical(clean, library),
       metaTitle: (clean.title || "Note") + " | Lighthouse Macro",
       metaDescription: clip(clean.dek || clean.answer || "", 160),
       markdown: markdown(clean, rep),
-      html: fullDocument(clean, rep),
-      jsonld: safeJson(jsonLd(clean, rep)),
-      social: social(clean),
-      llms: llms(clean),
+      html: fullDocument(clean, rep, library),
+      jsonld: safeJson(jsonLd(clean, rep, library)),
+      social: social(clean, library),
+      llms: llms(clean, library),
       article: articleHtml(clean, rep)
     };
   }
@@ -913,7 +943,7 @@
         "A tile is a label on a composite, not a trade. The thresholds live on the methodology page."
       ].join("\n\n"),
       invalidation: "This specimen goes stale on the day the homepage tiles change. A research note that cites a tile is wrong when that label is no longer the label on the live board for the date it names.",
-      sources: "Lighthouse Macro regime board — homepage tiles dated 2026-11-20\nLighthouse Macro methodology — published thresholds for the twelve pillars",
+      sources: "Lighthouse Macro homepage — regime board tiles dated 2026-11-20\nLighthouse Macro methodology — published thresholds for the twelve pillars",
       updatedAt: "2026-11-20T00:00:00.000Z"
     }),
     sanitize({
@@ -943,6 +973,8 @@
     seeds: seeds,
     uid: uid,
     slugify: slugify,
+    publicSlug: publicSlug,
+    realDate: realDate,
     wordCount: wordCount,
     words: words,
     sentences: sentences,

@@ -147,6 +147,32 @@ test("the title trim stays on a word boundary", () => {
   assert.ok(note.title.startsWith(result.note.title));
 });
 
+test("dates, slugs, and source names stay strict", () => {
+  assert.equal(D.sanitize({ id: "bad/id", date: "2026-02-31", title: "A note" }).date, "");
+  assert.equal(D.sanitize({ id: "bad/id", title: "A note" }).id.includes("/"), false);
+
+  const later = D.clone(specimen());
+  later.date = "2026-11-21";
+  assert.equal(D.analyze(later, { today: TODAY }).geo.checks.find((item) => item.id === "freshness").status, "warn");
+
+  const overlap = D.blankNote({
+    title: "The corporate print is the whole story for now",
+    question: "What is the policy rate?",
+    date: TODAY,
+    series: "beam",
+    pillar: "labor"
+  });
+  assert.equal(D.analyze(overlap, { today: TODAY }).seo.checks.find((item) => item.id === "question-overlap").status, "warn");
+
+  const loose = D.clone(specimen());
+  loose.sources = "Unrelated office — memo dated 2026-11-20";
+  assert.equal(D.analyze(loose, { today: TODAY }).geo.checks.find((item) => item.id === "sourced-claim").status, "warn");
+
+  const copy = D.clone(specimen());
+  copy.id = "othercopy";
+  assert.notEqual(D.publicSlug(specimen(), [specimen(), copy]), D.publicSlug(copy, [specimen(), copy]));
+});
+
 test("the command line scores the same engine", () => {
   const cli = path.join(__dirname, "cli.js");
   const good = spawnSync(process.execPath, [cli, "analyze", "--seed", "specimen", "--json", "--today", TODAY, "--strict"], { encoding: "utf8" });
@@ -160,4 +186,8 @@ test("the command line scores the same engine", () => {
   const social = spawnSync(process.execPath, [cli, "packet", "--seed", "specimen", "--format", "social"], { encoding: "utf8" });
   assert.equal(social.status, 0, social.stderr);
   assert.ok(social.stdout.trim().length <= 280);
+
+  const strictPacket = spawnSync(process.execPath, [cli, "packet", "--seed", "draft", "--strict", "--today", TODAY, "--format", "social"], { encoding: "utf8" });
+  assert.equal(strictPacket.status, 1);
+  assert.ok(strictPacket.stdout.trim().length > 0);
 });

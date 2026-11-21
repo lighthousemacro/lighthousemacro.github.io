@@ -6,6 +6,7 @@
   var KEY = "lhm-pharos-desk-v1";
   var state = load();
   var ui = { agent: "seo", mode: "write", focusTitle: false, paintQueued: false };
+  var generation = 0;
 
   var live = document.getElementById("live");
   var toast = document.getElementById("toast");
@@ -13,6 +14,16 @@
   document.body.addEventListener("input", onField);
   document.body.addEventListener("change", onField);
   window.addEventListener("hashchange", route);
+  window.addEventListener("storage", function (event) {
+    if (event.key !== KEY || !event.newValue) return;
+    var saved = readSaved();
+    if (!saved) return;
+    state.notes = saved.notes.filter(function (note) { return saved.deleted.indexOf(note.id) === -1; });
+    state.deleted = saved.deleted;
+    if (!state.notes.some(function (note) { return note.id === state.activeId; })) state.activeId = state.notes[0] ? state.notes[0].id : "";
+    generation += 1;
+    route();
+  });
 
   if (!location.hash || location.hash === "#" || location.hash === "#/") {
     var opening = state.activeId || (state.notes[0] && state.notes[0].id) || "";
@@ -26,9 +37,10 @@
       if (!raw) return fresh();
       var parsed = JSON.parse(raw);
       if (!parsed || !Array.isArray(parsed.notes)) return fresh();
-      var notes = parsed.notes.map(D.sanitize);
+      var deleted = Array.isArray(parsed.deleted) ? parsed.deleted.map(String) : [];
+      var notes = parsed.notes.map(D.sanitize).filter(function (note) { return deleted.indexOf(note.id) === -1; });
       var activeId = notes.some(function (note) { return note.id === parsed.activeId; }) ? parsed.activeId : (notes[0] ? notes[0].id : "");
-      return { notes: notes, activeId: activeId };
+      return { notes: notes, activeId: activeId, deleted: deleted };
     } catch (error) {
       return fresh();
     }
@@ -36,14 +48,65 @@
 
   function fresh() {
     var notes = D.seeds.map(D.clone);
-    return { notes: notes, activeId: notes[0].id };
+    return { notes: notes, activeId: notes[0].id, deleted: [] };
   }
 
-  function save() {
+  function readSaved() {
     try {
-      localStorage.setItem(KEY, JSON.stringify({ version: 1, notes: state.notes, activeId: state.activeId }));
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || !Array.isArray(parsed.notes)) return null;
+      return {
+        notes: parsed.notes.map(D.sanitize),
+        activeId: parsed.activeId || "",
+        deleted: Array.isArray(parsed.deleted) ? parsed.deleted.map(String) : []
+      };
     } catch (error) {
-      say("This browser could not save the library.");
+      return null;
+    }
+  }
+
+  function mergeNotes(localNotes, savedNotes) {
+    var savedById = {};
+    savedNotes.forEach(function (note) { savedById[note.id] = note; });
+    var seen = {};
+    var merged = [];
+    localNotes.forEach(function (note) {
+      var other = savedById[note.id];
+      var chosen = other && String(other.updatedAt || "") > String(note.updatedAt || "") ? other : note;
+      merged.push(chosen);
+      seen[chosen.id] = true;
+    });
+    savedNotes.forEach(function (note) {
+      if (!seen[note.id]) merged.push(note);
+    });
+    return merged;
+  }
+
+  function save(removed) {
+    try {
+      if (!state.deleted) state.deleted = [];
+      (removed || []).forEach(function (id) {
+        if (state.deleted.indexOf(id) === -1) state.deleted.push(id);
+      });
+      var saved = readSaved();
+      if (saved && saved.deleted) {
+        saved.deleted.forEach(function (id) {
+          if (state.deleted.indexOf(id) === -1) state.deleted.push(id);
+        });
+      }
+      state.deleted = state.deleted.slice(-200);
+      var savedNotes = saved ? saved.notes.filter(function (note) { return state.deleted.indexOf(note.id) === -1; }) : [];
+      state.notes = mergeNotes(state.notes.filter(function (note) { return state.deleted.indexOf(note.id) === -1; }), savedNotes);
+      if (state.activeId && !state.notes.some(function (note) { return note.id === state.activeId; })) {
+        state.activeId = state.notes[0] ? state.notes[0].id : "";
+      }
+      localStorage.setItem(KEY, JSON.stringify({ version: 1, notes: state.notes, activeId: state.activeId, deleted: state.deleted }));
+      return true;
+    } catch (error) {
+      say("This browser could not save the library. The change is still on screen and will be lost on reload.");
+      return false;
     }
   }
 
@@ -231,7 +294,7 @@
   function renderRead(slug) {
     var note = null;
     for (var i = 0; i < state.notes.length; i++) {
-      if (D.slugify(state.notes[i].title) === slug) { note = state.notes[i]; break; }
+      if (D.publicSlug(state.notes[i], state.notes) === slug) { note = state.notes[i]; break; }
     }
     var app = document.getElementById("app");
     if (!note) {
@@ -277,15 +340,28 @@
       var count = D.wordCount(note[key] || "");
       el.textContent = key === "body" && count ? count + " words · about " + Math.max(1, Math.round(count / 220)) + " min" : count + " words";
     });
-    var mini = document.querySelector('[data-mini="' + note.id + '"]');
+    var mini = null;
+    var minis = document.querySelectorAll("[data-mini]");
+    for (var m = 0; m < minis.length; m++) if (minis[m].getAttribute("data-mini") === note.id) mini = minis[m];
     if (mini) {
       mini.textContent = String(report.min);
       mini.classList.toggle("low", report.min < D.SHIP_AT);
     }
-    var title = document.querySelector('.note-btn[data-id="' + note.id + '"] .t');
-    if (title) title.textContent = note.title || "Untitled note";
+    var card = null;
+    var cards = document.querySelectorAll(".note-btn");
+    for (var c = 0; c < cards.length; c++) if (cards[c].getAttribute("data-id") === note.id) card = cards[c];
+    if (card) {
+      var title = card.querySelector(".t");
+      if (title) title.textContent = note.title || "Untitled note";
+      var filing = card.querySelector(".s span");
+      if (filing) {
+        var series = D.seriesById(note.series);
+        var flag = note.specimen ? "Specimen" : note.status === "public" ? "Public" : "Draft";
+        filing.textContent = (series ? series.label : "Unfiled") + " · " + flag;
+      }
+    }
     var page = document.getElementById("open-page");
-    if (page) page.setAttribute("href", "#/read/" + encodeURIComponent(D.slugify(note.title) || "note"));
+    if (page) page.setAttribute("href", "#/read/" + encodeURIComponent(D.publicSlug(note, state.notes)));
     if (ui.mode === "write") document.title = (note.title || "Untitled note") + " · Pharos Desk";
   }
 
@@ -319,6 +395,7 @@
     if (!note) return;
     note[target.getAttribute("data-field")] = target.value;
     note.updatedAt = new Date().toISOString();
+    generation += 1;
     save();
     schedulePaint();
   }
@@ -387,7 +464,11 @@
     ui.mode = "write";
     ui.agent = "seo";
     ui.focusTitle = true;
-    save();
+    generation += 1;
+    if (!save()) {
+      renderDesk();
+      return;
+    }
     location.hash = "/note/" + encodeURIComponent(note.id);
   }
 
@@ -398,7 +479,11 @@
     if (!window.confirm('Delete "' + name + '" from this browser?')) return;
     state.notes = state.notes.filter(function (item) { return item.id !== note.id; });
     state.activeId = state.notes[0] ? state.notes[0].id : "";
-    save();
+    generation += 1;
+    if (!save([note.id])) {
+      renderDesk();
+      return;
+    }
     say("Deleted " + name + ".");
     if (state.activeId) location.hash = "/note/" + encodeURIComponent(state.activeId);
     else {
@@ -409,7 +494,7 @@
 
   function packed() {
     var note = current();
-    return D.packet(note, D.analyze(note, analyzeOpts()));
+    return D.packet(note, D.analyze(note, analyzeOpts()), state.notes);
   }
 
   function copyPart(part, button) {
@@ -425,9 +510,12 @@
     area.value = text;
     document.body.appendChild(area);
     area.select();
-    try { document.execCommand("copy"); done(); }
-    catch (error) { say("Select the text and copy it."); }
+    var copied = false;
+    try { copied = document.execCommand("copy"); }
+    catch (error) { copied = false; }
     area.remove();
+    if (copied) done();
+    else say("Select the text and copy it.");
   }
 
   function flash(button, label) {
@@ -469,21 +557,28 @@
     var file = input.files && input.files[0];
     input.value = "";
     if (!file) return;
+    var seen = generation;
     var reader = new FileReader();
+    reader.onerror = function () { say("That file could not be read."); };
+    reader.onabort = function () { say("The import was cancelled."); };
     reader.onload = function () {
       try {
+        if (seen !== generation) throw new Error("The library changed while that file was reading. Import it again.");
         var data = JSON.parse(String(reader.result || ""));
-        var notes = Array.isArray(data) ? data : data.notes;
-        if (!Array.isArray(notes)) throw new Error("That file has no notes.");
-        notes.forEach(function (item) {
-          var note = D.sanitize(item);
+        var incoming = Array.isArray(data) ? data : data.notes;
+        if (!Array.isArray(incoming)) throw new Error("That file has no notes.");
+        var notes = incoming.map(D.sanitize);
+        var fresh = [];
+        notes.forEach(function (note) {
           var existing = -1;
           for (var i = 0; i < state.notes.length; i++) if (state.notes[i].id === note.id) existing = i;
           if (existing >= 0) state.notes[existing] = note;
-          else state.notes.unshift(note);
+          else fresh.push(note);
         });
+        state.notes = fresh.concat(state.notes);
         if (!current()) state.activeId = state.notes[0] ? state.notes[0].id : "";
-        save();
+        generation += 1;
+        if (!save()) return;
         say("Imported " + notes.length + (notes.length === 1 ? " note." : " notes."));
         renderDesk();
       } catch (error) {
@@ -502,7 +597,8 @@
       }
     });
     if (!state.activeId && state.notes[0]) state.activeId = state.notes[0].id;
-    save();
+    generation += 1;
+    if (added && !save()) return;
     say(added ? "Restored " + added + (added === 1 ? " example." : " examples.") : "The examples are already in this library.");
     if (added) renderDesk();
   }

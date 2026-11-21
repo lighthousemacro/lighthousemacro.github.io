@@ -30,7 +30,7 @@ function help() {
     "",
     "Options",
     "  --seed specimen|draft   Use a note shipped with the desk.",
-    "  --today YYYY-MM-DD      Date the freshness check measures from.",
+    "  --today YYYY-MM-DD      Date the freshness check measures from. The default is this machine's calendar date.",
     "  --json                  Print the analyze report as JSON.",
     "  --strict                Exit 1 unless SEO, GEO, and AEO all clear 80.",
     "  --format name           Packet field to print. Default: markdown.",
@@ -96,9 +96,7 @@ function main(argv) {
     } else {
       process.stdout.write(String(packed[name]).replace(/\s*$/, "") + "\n");
     }
-    return 0;
-  }
-  if (args.includes("--json")) process.stdout.write(JSON.stringify(report, null, 2) + "\n");
+  } else if (args.includes("--json")) process.stdout.write(JSON.stringify(report, null, 2) + "\n");
   else process.stdout.write(printReport(report));
   if (args.includes("--strict") && report.min < D.SHIP_AT) return 1;
   return 0;
