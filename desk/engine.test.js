@@ -104,6 +104,12 @@ test("the packet is citable, escaped, and short enough to post", () => {
   assert.match(packed.jsonld, /SpeakableSpecification/);
   assert.match(packed.html, /noindex,follow/);
   assert.match(packed.markdown, /What would change the call/);
+  assert.equal(packed.markdown.includes("Reading Room"), false);
+  assert.equal(packed.canonical, "https://lighthousemacro.com/desk/#/read/" + packed.slug);
+  const published = D.clone(note);
+  published.specimen = false;
+  published.status = "public";
+  assert.equal(D.canonical(published), "https://lighthousemacro.com/desk/#/read/" + packed.slug);
   assert.match(packed.llms, /Lighthouse Macro/);
   assert.match(packed.article, /class="desk-answer"/);
   assert.match(packed.article, /Not a new forecast/);

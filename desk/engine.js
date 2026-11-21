@@ -285,16 +285,15 @@
     if (pillar) links.push({ label: pillar.name, href: "https://lighthousemacro.com" + pillar.href });
     links.push({ label: "The Diagnostic Dozen", href: "https://lighthousemacro.com/framework.html" });
     links.push({ label: "Methodology", href: "https://lighthousemacro.com/methodology.html" });
-    links.push({ label: "Reading Room", href: "https://lighthousemacro.com/research/" });
+    links.push({ label: "Pharos Desk", href: "https://lighthousemacro.com/desk/" });
     return links;
   }
 
   function canonical(note) {
     var clean = sanitize(note);
-    var slug = slugify(clean.title) || "note";
-    if (clean.status === "public" && !clean.specimen) return "https://lighthousemacro.com/research/" + slug + ".html";
-    if (clean.specimen) return "https://lighthousemacro.com/desk/#/read/" + slug;
-    return "https://lighthousemacro.com/desk/";
+    var slug = slugify(clean.title);
+    if (!slug) return "https://lighthousemacro.com/desk/";
+    return "https://lighthousemacro.com/desk/#/read/" + slug;
   }
 
   function check(id, status, label, detail, fix) {
@@ -413,8 +412,9 @@
       ? check("lede", "pass", "Opening", ledeCount + " words before the first break. The opening carries the note.")
       : check("lede", "fail", "Opening", ledeCount + " words in the opening. Give it at least 40, in your own sentences."));
     var path = canonical(note);
+    var where = note.specimen ? "Specimen page: " : note.status === "public" ? "Public page: " : "Draft page, in this browser: ";
     checks.push(slugify(title)
-      ? check("public-path", "pass", "Where it lives", (note.specimen ? "Specimen reader: " : note.status === "public" ? "File the HTML at " : "Drafts stay on the desk. A public note files at ") + path)
+      ? check("public-path", "pass", "Where it lives", where + path)
       : check("public-path", "fail", "Where it lives", "The note needs a title before it has a path."));
     var slug = slugify(title);
     if (opts && opts.library && slug) {
@@ -731,7 +731,7 @@
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Lighthouse Macro", item: "https://lighthousemacro.com/" },
-          { "@type": "ListItem", position: 2, name: clean.specimen || clean.status !== "public" ? "Pharos Desk" : "Reading Room", item: clean.specimen || clean.status !== "public" ? "https://lighthousemacro.com/desk/" : "https://lighthousemacro.com/research/" },
+          { "@type": "ListItem", position: 2, name: "Pharos Desk", item: "https://lighthousemacro.com/desk/" },
           { "@type": "ListItem", position: 3, name: clean.title || "Note", item: url }
         ]
       }

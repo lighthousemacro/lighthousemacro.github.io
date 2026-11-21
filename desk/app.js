@@ -213,11 +213,11 @@
   function packetHtml(note) {
     var packed = D.packet(note, D.analyze(note, analyzeOpts()));
     var slug = packed.slug;
-    return '<div class="packet-lead"><p>The desk is the application. These are the pipes. Beehiiv, Substack, and a WordPress post take the markdown. The Reading Room takes the HTML file. Search and answer engines take the schema. Nothing here posts by itself.</p>' +
+    return '<div class="packet-lead"><p>The desk is the application. Beehiiv, Substack, and WordPress take the markdown. The HTML file is the page. Search and answer engines take the schema. Nothing here posts by itself.</p>' +
       '<p class="command">node desk/cli.js analyze note.json --strict</p>' +
       '<button type="button" data-action="download-note">Download note.json</button></div>' +
       block("Markdown · Beehiiv, Substack, WordPress", packed.markdown, "markdown", slug + ".md", "text/markdown") +
-      block("HTML · Reading Room", packed.html, "html", slug + ".html", "text/html") +
+      block("HTML · The page", packed.html, "html", slug + ".html", "text/html") +
       block("JSON-LD", packed.jsonld, "jsonld", slug + ".json", "application/json") +
       block("Post · " + packed.social.length + " characters", packed.social, "social") +
       block("llms.txt line", packed.llms, "llms");

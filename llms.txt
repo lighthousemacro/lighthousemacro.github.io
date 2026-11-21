@@ -28,7 +28,6 @@ Lighthouse Macro reads the economic cycle through the Diagnostic Dozen: twelve m
 - [Sentiment & Positioning: The Contrarian Edge](https://lighthousemacro.com/research/sentiment-and-positioning-the-contrarian-216.html)
 
 ## Research
-- [The Reading Room](https://lighthousemacro.com/research/): every published piece, indexed on this domain
 - [Research on Substack](https://research.lighthousemacro.com): where the publications are delivered. The Beacon (long-form flagship), The Beam (short, single-thesis), Notes (free), The Chartbook, and The Horizon (forward outlook)
 
 ## Pharos and membership
