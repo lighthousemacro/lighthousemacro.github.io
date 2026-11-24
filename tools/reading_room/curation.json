@@ -1,0 +1,32 @@
+{
+  "_about": "Hand curation for the Reading Room. exclude: slugs kept off the site. series: slugs whose series is pinned by hand; every other post takes its series from its Substack tag (The Beacon, The Beam, The Horizon, The Chartbook, Marginal Matters, Crosscurrents, The Book, The Diagnostic Dozen), then its subtitle, then falls back to notes.",
+  "exclude": [
+    "building-the-intelligence-layer",
+    "introducing-lighthouse-macro-crypto",
+    "the-foundation-is-set-now-we-build",
+    "twelve-hours",
+    "welcome-to-lighthouse-macro"
+  ],
+  "series": {
+    "bullion-brilliance": "beacon",
+    "chaos-in-china": "beam",
+    "collateral-fragility": "beacon",
+    "cracks-beneath-the-surface": "beacon",
+    "cracks-in-the-foundation-the-us-treasury": "beacon",
+    "crypto-liquidity-impulse": "dozen",
+    "labor-woes-growth-slows": "beacon",
+    "liquidity-transmission-framework": "dozen",
+    "monetary-monday": "beam",
+    "navigating-trade-tensions": "beacon",
+    "new-year-new-paradigms": "beacon",
+    "seemingly-stable-systemically-stressed": "beacon",
+    "the-dollar-vs-gold-and-real-yields": "beacon",
+    "the-reflexive-bid": "beacon",
+    "the-silent-capitulation-etf-exodus": "beam",
+    "the-us-housing-market-in-2025": "beacon",
+    "the-vanishing-job-hopper-premium": "beacon",
+    "the-widest-page-in-the-book": "beacon",
+    "two-prints-in-one-release": "beam",
+    "why-most-americans-dont-care-about": "dozen"
+  }
+}

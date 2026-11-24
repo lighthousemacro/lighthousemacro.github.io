@@ -2,3 +2,5 @@
 .DS_Store
 .claude/
 index.html.zip
+.rr-cache/
+__pycache__/
