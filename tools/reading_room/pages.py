@@ -118,29 +118,42 @@ def foot(year: str, js: str = "") -> str:
 # ----------------------------------------------------------------------------- index (layout B)
 INDEX_JS = """<script>
 (function(){
-  var s='all',fo=document.getElementById('fo'),q=document.getElementById('q'),none=document.getElementById('none');
+  /* Newest 20 first, "Load more" for the next 20. Series, Free only and search always
+     cover the whole archive; changing any of them starts again from the newest 20.
+     Without JavaScript every row stays visible and the button stays hidden. */
+  var PAGE=20,lim=PAGE,s='all',fo=document.getElementById('fo'),q=document.getElementById('q'),none=document.getElementById('none');
+  var lm=document.getElementById('lm'),cnt=document.getElementById('cnt'),mw=document.getElementById('mw');
   var chips=[].slice.call(document.querySelectorAll('.chip'));
-  function run(){
+  function run(reset){
+    if(reset)lim=PAGE;
     var t=q.value.trim().toLowerCase(),total=0;
     document.querySelectorAll('.grp').forEach(function(g){
       var n=0;
       g.querySelectorAll('.row').forEach(function(r){
         var ok=(s==='all'||r.dataset.s===s)&&(!fo.checked||r.dataset.f==='1')&&(!t||r.dataset.t.indexOf(t)>-1);
-        r.hidden=!ok;if(ok)n++;
+        if(ok)total++;
+        var show=ok&&total<=lim;
+        r.hidden=!show;if(show)n++;
       });
-      g.hidden=!n;total+=n;
+      g.hidden=!n;
     });
     none.hidden=total>0;
+    var shown=Math.min(total,lim),left=total-shown;
+    mw.hidden=!total;
+    cnt.textContent='Showing '+shown+' of '+total;
+    lm.hidden=!left;
+    lm.textContent='Load '+Math.min(PAGE,left)+' more';
   }
   function pick(k,push){
     if(!chips.some(function(c){return c.dataset.s===k;}))k='all';
     s=k;
     chips.forEach(function(c){var on=c.dataset.s===k;c.classList.toggle('on',on);c.setAttribute('aria-pressed',on?'true':'false');});
     if(push&&history.replaceState)history.replaceState(null,'',k==='all'?location.pathname:'#'+k);
-    run();
+    run(true);
   }
   chips.forEach(function(c){c.addEventListener('click',function(){pick(c.dataset.s,true);});});
-  fo.addEventListener('change',run);q.addEventListener('input',run);
+  fo.addEventListener('change',function(){run(true);});q.addEventListener('input',function(){run(true);});
+  lm.addEventListener('click',function(){lim+=PAGE;run(false);});
   window.addEventListener('hashchange',function(){pick(location.hash.slice(1),false);});
   pick(location.hash.slice(1)||'all',false);
 })();
@@ -196,7 +209,9 @@ def index(posts: list[dict]) -> str:
                        f'<span class="t"><span class="h">{E(p["title"])}</span>{dek}</span>'
                        f'<span class="b">{badge(p)}</span>{thumb}</a>\n')
         out.append("</section>\n")
-    out.append('<p class="none" id="none" hidden>Nothing matches. Clear the search or pick another series.</p>\n</main>\n')
+    out.append('<p class="none" id="none" hidden>Nothing matches. Clear the search or pick another series.</p>\n'
+               '<div class="lm" id="mw" hidden><p class="cnt" id="cnt" aria-live="polite"></p>'
+               '<button class="btn btn-line" id="lm" type="button" hidden>Load 20 more</button></div>\n</main>\n')
     out.append(foot(posts[0]["date"][:4], INDEX_JS))
     return "".join(out)
 
