@@ -206,6 +206,15 @@ KEEP_ATTR = {"a": {"href"}, "img": {"src", "alt", "loading"}, "td": {"colspan", 
              "iframe": {"src", "width", "height", "allowfullscreen", "frameborder"}, "ol": {"start"}}
 
 
+# Bob, 11/24/2026: the term "institutional grade" is off the site everywhere, and that
+# includes older pieces mirrored here. Drop the modifier and keep the sentence.
+_INSTITUTIONAL_GRADE = re.compile(r"\b(I|i)nstitutional[-\s][Gg]rade\s+(\w)")
+
+
+def drop_institutional_grade(text: str) -> str:
+    return _INSTITUTIONAL_GRADE.sub(lambda m: m.group(2).upper() if m.group(1) == "I" else m.group(2), text)
+
+
 def clean_body(raw: str, known: set[str]) -> tuple[str, str]:
     """Return (lead_quote_text, body_html) with Substack chrome removed and images on the CDN."""
     soup = BeautifulSoup(raw, "lxml")
@@ -276,7 +285,7 @@ def clean_body(raw: str, known: set[str]) -> tuple[str, str]:
         break
     for d in body.find_all("div"):  # flatten the wrapper divs left behind
         d.unwrap()
-    return lead, "".join(str(c) for c in body.contents).strip()
+    return drop_institutional_grade(lead), drop_institutional_grade("".join(str(c) for c in body.contents).strip())
 
 
 def plain(html_text: str, n: int = 300) -> str:
@@ -337,7 +346,7 @@ def feed_xml(posts: list[dict], contacts: str) -> str:
   <title>Lighthouse Macro</title>
   <link>{SITE}/research/</link>
   <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml"/>
-  <description>Institutional-grade macro and economic intelligence, built on framework and process. Macro, Illuminated.</description>
+  <description>Macro and economic intelligence, built on framework and process. Macro, Illuminated.</description>
   <language>en-us</language>
   <copyright>Copyright {year} Lighthouse Macro, LLC</copyright>{contacts}
   <lastBuildDate>{built}</lastBuildDate>

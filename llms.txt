@@ -1,6 +1,6 @@
 # Lighthouse Macro
 
-> Institutional-grade macro and economic intelligence, built on framework and process. Founded and run by Bob Sheehan, CFA, CMT. Tagline: Macro, Illuminated.
+> Macro and economic intelligence, built on framework and process. Founded and run by Bob Sheehan, CFA, CMT. Tagline: Macro, Illuminated.
 
 Lighthouse Macro reads the economic cycle through the Diagnostic Dozen: twelve macro pillars across three engines (Macro Dynamics, Monetary Mechanics, Market Structure). The pillars feed proprietary composites and a master risk index (MRI), surfaced on a public live dashboard. The framework serves two audiences: market participants (advisors, allocators, CIOs) and operators (CEOs, CFOs, founders) who need macro for capital, hiring, and capex decisions.
 
