@@ -15,3 +15,4 @@ The research database, API keys, and draft client work do not belong here. Those
 | `articles/`, `social/` | Published pieces and social charts |
 | `feed.xml`, `sitemap.xml` | Feeds. Built with the Reading Room |
 | `tools/reading_room/` | The Reading Room builder. The Mac runs it hourly (LHM `Scripts/website/publish_reading_room.sh`) |
+| `tools/regime_board/` | Scores the homepage regime board tiles against each pillar's own history. The Mac's 07:45 job runs it after rebuilding `index.html` |
