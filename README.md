@@ -10,8 +10,8 @@ The research database, API keys, and draft client work do not belong here. Those
 | --- | --- |
 | `index.html` | Homepage. Rebuilt by the Mac's 07:45 job (LHM `Scripts/website/publish_site_daily.sh`) |
 | `framework.html`, `methodology.html`, `start-here.html` | The public framework |
-| `research/` | The Reading Room. Built every hour from Substack by `tools/reading_room/`; do not edit by hand |
+| `research/` | The Reading Room. Built every hour from Substack by `tools/reading_room/`, run by the Mac; do not edit by hand |
 | `pharos/` | Pharos pages on the site |
 | `articles/`, `social/` | Published pieces and social charts |
 | `feed.xml`, `sitemap.xml` | Feeds. Built with the Reading Room |
-| `tools/reading_room/` | The Reading Room builder and its hourly job (`.github/workflows/reading-room.yml`) |
+| `tools/reading_room/` | The Reading Room builder. The Mac runs it hourly (LHM `Scripts/website/publish_reading_room.sh`) |

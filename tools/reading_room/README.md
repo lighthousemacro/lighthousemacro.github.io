@@ -1,7 +1,12 @@
 # Reading Room builder
 
-Builds https://lighthousemacro.com/research/ from the Substack archive, every hour, in GitHub Actions
-(`.github/workflows/reading-room.yml`). New Substack posts show up within the hour; nobody runs anything.
+Builds https://lighthousemacro.com/research/ from the Substack archive, every hour, on the Mac
+(LHM `Scripts/website/publish_reading_room.sh`, launchd `com.lighthousemacro.reading-room`). New Substack
+posts show up within the hour while the Mac is awake; nobody runs anything.
+
+It runs on the Mac because Substack refuses GitHub's runners (HTTP 403 on the archive API, seen
+Nov 24, 2026). The Mac pulls this repository before every run, so changes to these files take effect
+on the next hour without touching the Mac.
 
 | File | What it does |
 | --- | --- |
@@ -9,14 +14,14 @@ Builds https://lighthousemacro.com/research/ from the Substack archive, every ho
 | `pages.py` | The HTML: the index (layout B, "The Index") and the article page |
 | `reader.css` | Styles for both. Copied to `research/reader.css` on every build |
 | `curation.json` | Hand curation: posts kept off the site, and posts whose series is pinned by hand |
-| `site_links.py` | Points the rest of the site at the Reading Room (`--homepage` for the Mac, `--static` for the cloud) |
-| `mac-handoff.txt` | Written by the Mac's daily job. Until it exists the hourly job commits nothing |
+| `site_links.py` | Points the rest of the site at the Reading Room (`--homepage` for index.html, `--static` for the hand-built pages) |
 
 ## Who owns which file
 
 The hourly job owns `research/`, `feed.xml`, `sitemap.xml`, and the Reading Room links in
-`start-here.html`, `framework.html` and `methodology.html`. The Mac's 07:45 job owns `index.html`
-and never touches the files above, so the two never collide on a push.
+`start-here.html`, `framework.html`, `methodology.html` and `index.html`. The Mac's 07:45 job rebuilds
+`index.html` and leaves the other files alone. Both run in the same clone on the Mac and share a lock,
+so they never run at the same time.
 
 ## Access rules
 
