@@ -10,6 +10,9 @@
   --rr-accent:#155F86;              /* Ocean, darkened for text on the ground */
   --rr-soft:#46596E;                /* deks, captions, crumbs */
   --rr-muted:#3E5268;               /* dates, bylines, counts */
+  /* Orange accent. Bob, Nov 24 2026: #FF8915 in the Reading Room (brand Dusk elsewhere is #FF6723).
+     White text on it reads at 2.4:1, so buttons carry navy text (5.4:1). */
+  --dusk:#FF8915;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-padding-top:150px}
@@ -23,11 +26,11 @@ h1,h2,h3{font-family:var(--font-display);letter-spacing:-.01em;text-wrap:balance
 .mark{fill:currentColor;display:block}
 .bar{height:var(--rule);background:var(--accent-bar)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:12px 20px;border-radius:var(--radius-hull);border:2px solid transparent;white-space:nowrap;cursor:pointer}
-.btn-dusk{background:var(--dusk);color:#fff}.btn-dusk:hover{filter:brightness(1.06)}
+.btn-dusk{background:var(--dusk);color:var(--navy)}.btn-dusk:hover{filter:brightness(1.06)}
 .btn-line{border-color:var(--ocean);color:var(--ocean)}.btn-line:hover{background:var(--ocean);color:#fff}
 .bdg{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:3px 7px;border-radius:var(--radius-hull);white-space:nowrap}
 .bdg.free{background:rgba(0,187,137,.16);color:#00634A}
-.bdg.mem{background:rgba(255,103,35,.16);color:#9E3610}
+.bdg.mem{background:rgba(255,137,21,.2);color:#8A4300}
 .ser{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--rr-accent);font-weight:600}
 .thumb{display:block;background:var(--glacier);overflow:hidden;border-radius:10px;border:1px solid rgba(35,137,187,.18)}
 .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
@@ -55,7 +58,7 @@ h1,h2,h3{font-family:var(--font-display);letter-spacing:-.01em;text-wrap:balance
   .nav.open nav{display:flex}
   .nav nav a{padding:13px 0;border-top:1px solid var(--navy-line);font-size:16px}
   .nav nav a.on{box-shadow:none;padding-bottom:13px}
-  .nav nav .btn{display:inline-flex;align-self:flex-start;margin-top:var(--s4);border-top:0;padding:12px 20px;font-size:15px;color:#fff}
+  .nav nav .btn{display:inline-flex;align-self:flex-start;margin-top:var(--s4);border-top:0;padding:12px 20px;font-size:15px;color:var(--navy)}
   .menu{display:inline-flex}
   .nav .right{margin-left:0}
 }
@@ -83,7 +86,7 @@ footer p{max-width:110ch;line-height:1.55}
 .feat .h{display:block;font-family:var(--font-display);color:#fff;font-size:28px;line-height:1.15;font-weight:800;text-wrap:balance}
 .feat .p{display:block;color:#B8CCDD;margin-top:var(--s2);font-size:16px}
 .feat .go{display:inline-block;margin-top:var(--s3);color:var(--dusk);font-weight:600;font-size:14px}
-.feat .bdg.free{background:rgba(0,187,137,.22);color:#4FE0B5}.feat .bdg.mem{background:rgba(255,103,35,.22);color:#FF9A6B}
+.feat .bdg.free{background:rgba(0,187,137,.22);color:#4FE0B5}.feat .bdg.mem{background:rgba(255,137,21,.22);color:#FFB066}
 
 /* ---------- index: filters ---------- */
 .tools{position:sticky;top:68px;z-index:10;background:var(--rr-bg);border-bottom:1px solid rgba(35,137,187,.2);box-shadow:0 6px 16px -12px rgba(18,52,86,.25)}
