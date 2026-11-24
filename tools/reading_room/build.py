@@ -12,7 +12,7 @@ Access rules, carried over from the Mac builder this replaces:
     and stay out of the sitemap. The feed carries their dek and a members link.
 
 Exit codes: 0 built (or nothing changed); 2 partial archive; 3 a free post had no body;
-4 Substack did not answer. On 2-4 nothing is written and the hourly job just tries again.
+4 Substack did not answer. On 2-4 nothing is written and the Mac's hourly job just tries again.
 
 Guards: the build writes nothing unless the archive pull looks complete (at least
 MIN_POSTS posts and at least 90% of what the last build published) and every free

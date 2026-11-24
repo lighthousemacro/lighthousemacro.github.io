@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Point the rest of the site at the Reading Room. Safe to run any number of times.
 
---homepage  index.html. The Mac rebuilds the homepage every morning, so the Mac's
-            daily job runs this right after the rebuild:
+--homepage  index.html. The Mac rebuilds the homepage every morning; its daily job runs
+            this right after the rebuild, and the hourly Reading Room job runs it too:
               * the nav's Research link opens /research/ instead of scrolling the page;
               * the footer gets a Reading Room link;
               * "Read on Substack" over the latest research becomes "Open the Reading Room";
               * research cards that point at a Substack post open its page here instead.
 --static    start-here.html, framework.html, methodology.html. These are hand-built
-            pages, so the cloud build runs this:
+            pages; the Mac's hourly Reading Room job runs this:
               * start-here's Research links open /research/;
               * framework and methodology get Research as the first nav item.
 
@@ -77,8 +77,8 @@ def apply(path: Path, fn) -> bool:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Point the site at the Reading Room.")
     ap.add_argument("--root", default=".", help="site repository root")
-    ap.add_argument("--homepage", action="store_true", help="patch index.html (the Mac's daily job)")
-    ap.add_argument("--static", action="store_true", help="patch the hand-built pages (the cloud build)")
+    ap.add_argument("--homepage", action="store_true", help="patch index.html")
+    ap.add_argument("--static", action="store_true", help="patch the hand-built pages")
     a = ap.parse_args()
     root = Path(a.root).resolve()
     changed = []
