@@ -24,7 +24,7 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[
       {"@type":"Organization","@id":"https://lighthousemacro.com/#org","name":"Lighthouse Macro","url":"https://lighthousemacro.com","email":"advisory@lighthousemacro.com","description":"Macro and economic intelligence, built on framework and process.","slogan":"Macro, Illuminated.","logo":"https://lighthousemacro.com/assets/logo-navy-lightsky.png","sameAs":["https://x.com/LHMacro","https://research.lighthousemacro.com","https://pharos.lighthousemacro.com"],"founder":{"@id":"https://lighthousemacro.com/#bob"}},
-      {"@type":"Person","@id":"https://lighthousemacro.com/#bob","name":"Bob Sheehan","honorificSuffix":"CFA, CMT","jobTitle":"Founder & Macro Strategist","url":"https://lighthousemacro.com/#about","worksFor":{"@id":"https://lighthousemacro.com/#org"},"alumniOf":[{"@type":"Organization","name":"Bank of America Private Bank"},{"@type":"Organization","name":"Trahan Macro Research"},{"@type":"Organization","name":"Strom Capital"},{"@type":"Organization","name":"EquiLend"},{"@type":"CollegeOrUniversity","name":"Providence College"}],"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional designation","name":"Chartered Financial Analyst (CFA)"},{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional designation","name":"Chartered Market Technician (CMT)"}],"knowsAbout":["Macroeconomics","Business cycle analysis","Labor market flows","Inflation","Federal Reserve liquidity","Credit markets","Treasury market structure","Market breadth","Asset allocation"],"sameAs":["https://x.com/LHMacro","https://www.linkedin.com/in/boblhm","https://research.lighthousemacro.com"]},
+      {"@type":"Person","@id":"https://lighthousemacro.com/#bob","name":"Bob Sheehan","honorificSuffix":"CFA, CMT","jobTitle":"Founder, Chief Economist & Macro Strategist","url":"https://lighthousemacro.com/#about","worksFor":{"@id":"https://lighthousemacro.com/#org"},"alumniOf":[{"@type":"Organization","name":"Bank of America Private Bank"},{"@type":"Organization","name":"Trahan Macro Research"},{"@type":"Organization","name":"Strom Capital"},{"@type":"Organization","name":"EquiLend"},{"@type":"CollegeOrUniversity","name":"Providence College"}],"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional designation","name":"Chartered Financial Analyst (CFA)"},{"@type":"EducationalOccupationalCredential","credentialCategory":"Professional designation","name":"Chartered Market Technician (CMT)"}],"knowsAbout":["Macroeconomics","Business cycle analysis","Labor market flows","Inflation","Federal Reserve liquidity","Credit markets","Treasury market structure","Market breadth","Asset allocation"],"sameAs":["https://x.com/LHMacro","https://www.linkedin.com/in/boblhm","https://research.lighthousemacro.com"]},
       {"@type":"WebSite","@id":"https://lighthousemacro.com/#site","url":"https://lighthousemacro.com","name":"Lighthouse Macro","publisher":{"@id":"https://lighthousemacro.com/#org"}}
     ]}
     </script>
@@ -80,19 +80,19 @@ section{padding:var(--s9) 0}
 .more{font-weight:600;color:var(--ocean);font-size:15px}.more:hover{color:var(--dusk)}
 [hidden]{display:none!important}
 /* legacy aliases so the generated Start Here page (which borrows this chrome) keeps rendering */
-:root{--line:rgba(35,137,187,.22);--ink-2:#2C3E50;--ink-3:#5B7189;--foam:#FFFFFF;--deep:#123456;--ice:#D1E1F1;--abyss:#0E2B47;--slate:#2A4A6A;--steel:#8FA8BF;--w:1180px}
+:root{--line:rgba(35,137,187,.22);--ink-2:#2C3E50;--ink-3:#5B7189;--foam:#FFFFFF;--deep:#123456;--ice:#D1E1F1;--abyss:#111823;--slate:#2A4A6A;--steel:#8FA8BF;--w:1180px}
 .accent{display:none}
 .hero .grid,.hero .glow,.dark .grid{display:none}
 
 /* ---------- nav ---------- */
 .nav{position:sticky;top:0;z-index:20;background:var(--navy)}
-.nav .wrap{display:flex;align-items:center;gap:var(--s6);height:68px}
+.nav .wrap{display:flex;align-items:center;gap:var(--s5);height:68px}
 .wm{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;white-space:nowrap}
 .wm svg{height:34px;width:14px;color:var(--light-sky)}
 .wm span{font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:.02em}
 .wm b{color:var(--light-sky);font-weight:800}
 .wm:hover{color:#fff}
-.nav nav{display:flex;gap:var(--s5);flex:1}
+.nav nav{display:flex;gap:var(--s4);flex:1}
 .nav nav a{color:#C9D8E6;text-decoration:none;font-size:14px;font-weight:500}.nav nav a:hover{color:#fff}
 .nav nav .btn{display:none}
 .nav .right{display:flex;align-items:center;gap:var(--s4);margin-left:auto}
@@ -100,8 +100,10 @@ section{padding:var(--s9) 0}
 .nav .btn{white-space:nowrap}
 .menu{display:none;align-items:center;gap:8px;margin-left:auto;background:transparent;border:1.5px solid rgba(137,204,255,.4);color:#fff;border-radius:var(--radius-hull);padding:8px 12px;font:600 13px var(--font-body);cursor:pointer}
 .menu svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-@media(max-width:1120px){.nav .nav-price{display:none}}
-@media(max-width:960px){
+/* seven menu links (Methodology added 11/25/2026): the inline menu fills the 1,180px row, so it folds into the Menu button below that,
+   and the header button drops its price while the inline menu shows (the hero button right below carries it) */
+@media(min-width:1181px),(max-width:1120px){.nav .nav-price{display:none}}
+@media(max-width:1180px){
   .nav .wrap{gap:var(--s4)}
   .nav nav{display:none;position:absolute;left:0;right:0;top:68px;flex-direction:column;gap:0;background:var(--navy);padding:4px var(--s6) var(--s5);border-bottom:1px solid var(--navy-line)}
   .nav.open nav{display:flex}
@@ -122,6 +124,9 @@ section{padding:var(--s9) 0}
 .hero .lead{color:#C9D8E6;margin:var(--s5) 0 var(--s6);position:relative}
 .hero .row{position:relative}
 .hero .fine{font-size:var(--fs-small);color:#8FA8BF;margin-top:var(--s5);position:relative;max-width:70ch}
+.hero .stats{position:relative;list-style:none;margin:0 0 var(--s6);padding:0;display:flex;flex-wrap:wrap;gap:var(--s3) var(--s6)}
+.hero .stats li{display:flex;align-items:baseline;gap:10px;padding-left:var(--s3);border-left:3px solid var(--dusk);font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#C9D8E6;line-height:1.2}
+.hero .stats b{font-family:var(--font-display);font-size:30px;font-weight:800;letter-spacing:-.01em;color:var(--light-sky);text-transform:none}
 .hero .bar{position:absolute;left:0;right:0;bottom:0}
 
 /* ---------- press strip ---------- */
@@ -168,7 +173,7 @@ section{padding:var(--s9) 0}
 .tile .n{font-family:var(--font-mono);font-size:11px;color:#8FA8BF;letter-spacing:.1em}
 .tile .p{font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff}
 .tile .s{font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--st);text-transform:uppercase;margin-top:2px}
-.calm{--st:var(--light-sky)}.watch{--st:var(--sky)}.alert{--st:var(--dusk)}
+.calm{--st:var(--light-sky)}.watch{--st:var(--sky)}.alert{--st:var(--dusk)}.inband{--st:var(--light-sky)}.signal{--st:var(--dusk)}
 .legend{display:flex;gap:var(--s5);flex-wrap:wrap;margin-top:var(--s5);font-family:var(--font-mono);font-size:11.5px;color:#8FA8BF;align-items:center}
 .legend i{display:inline-block;width:14px;height:3px;margin-right:8px;vertical-align:middle}
 .legend a{color:var(--light-sky);margin-left:auto}.legend a:hover{color:#fff}
@@ -234,6 +239,7 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
   :root{--fs-hero:42px;--fs-h2:30px}
   section{padding:var(--s8) 0}.wrap{padding:0 var(--s5)}
   .hero{padding:var(--s8) 0 calc(var(--s8) + 8px)}
+  .hero .stats{gap:var(--s3) var(--s5)}.hero .stats b{font-size:24px}.hero .stats li{font-size:11px;letter-spacing:.1em}
   .sil{height:380px;right:-6%}
   .board{padding:var(--s5)}
   .tiles{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
@@ -244,6 +250,7 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
 /* start-here: one reading column on Ice */
 .sh-hero{padding:72px 0 56px}
 .sh-hero h1{font-size:clamp(34px,5vw,54px);margin:14px 0 0}
+.sh-hero .stats{margin:24px 0 0}
 .sh{padding:56px 0 72px}
 .sh .col{max-width:760px}
 .sh p{font-size:17px;line-height:1.7;color:var(--ink);margin:0 0 20px}
@@ -268,7 +275,7 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
 
 <header class="nav"><div class="wrap">
   <a class="wm" href="index.html" aria-label="Lighthouse Macro home"><svg class="mark" viewBox="590 288 416 1024" aria-hidden="true"><path d="M794 293L950 405V435H638V405Z"/><path d="M674 478H709V581H879V478H915V628H975V672H617V628H674Z"/><path d="M661 711H932L928 753L635 890Z"/><path d="M954 897L970 1051L596 1232L617 1064Z"/><path d="M989 1203L1001 1307H786Z"/></svg><span>LIGHTHOUSE <b>MACRO</b></span></a>
-  <nav id="site-nav" aria-label="Site"><a href="index.html#research">Research</a><a href="index.html#framework">Framework</a><a href="index.html#pharos">Pharos</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="index.html#about">About</a><a class="signin-m" href="https://pharos.lighthousemacro.com">Sign in to Pharos</a><a class="btn btn-dusk" href="https://lighthousemacro.substack.com/subscribe?plan=yearly&amp;utm_source=lhm_site&amp;utm_medium=cta&amp;utm_campaign=research_pharos">Join the Watch · $500/yr</a></nav>
+  <nav id="site-nav" aria-label="Site"><a href="index.html#research">Research</a><a href="index.html#framework">Framework</a><a href="methodology.html">Methodology</a><a href="index.html#pharos">Pharos</a><a href="index.html#services">Services</a><a href="index.html#pricing">Pricing</a><a href="index.html#about">About</a><a class="signin-m" href="https://pharos.lighthousemacro.com">Sign in to Pharos</a><a class="btn btn-dusk" href="https://lighthousemacro.substack.com/subscribe?plan=yearly&amp;utm_source=lhm_site&amp;utm_medium=cta&amp;utm_campaign=research_pharos">Join the Watch · $500/yr</a></nav>
   <button class="menu" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
   <div class="right"><a class="signin" href="https://pharos.lighthousemacro.com">Sign in</a><a class="btn btn-dusk" href="https://lighthousemacro.substack.com/subscribe?plan=yearly&amp;utm_source=lhm_site&amp;utm_medium=cta&amp;utm_campaign=research_pharos">Get Research + Pharos<span class="nav-price"> · $500/yr</span></a></div>
 </div>
@@ -281,6 +288,7 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
   <div class="wrap">
     <span class="eyebrow">// New here</span>
     <h1>Start Here</h1>
+    <ul class="stats" aria-label="Lighthouse Macro by the numbers"><li><b>12</b>pillars</li><li><b>120+</b>proprietary indicators</li><li><b>4,400+</b>data series</li></ul>
   </div>
 </div>
 
@@ -290,7 +298,7 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
 <p>Most recently he was VP of Data &amp; Analytics at EquiLend. If you’d rather hear how we think before you read it, start with his conversation on Blockworks’ Forward Guidance, <a href="https://www.youtube.com/watch?v=OHe0A0ewJh0">How To Trade The New Warsh Fed</a>.</p>
 <p>The philosophy fits in a line: flows over stocks. How fast something is changing usually tells you more, and sooner, than where it sits. By the time a headline number moves, the story underneath it is mostly over.</p>
 <h2>The framework</h2>
-<p>Everything we publish runs through one framework, the <a href="framework.html">Diagnostic Dozen</a>: twelve pillars of the economy across three engines. Each pillar got its own free deep dive on what it measures, how it connects to the others, and the thresholds we watch.</p>
+<p>Everything we publish runs through one framework, the <a href="framework.html">Diagnostic Dozen</a>: twelve pillars of the economy across three engines. Each pillar got its own free deep dive on what it measures, how it connects to the others, and the thresholds we watch. <a href="methodology.html">How we build it →</a></p>
 <ul>
   <li><strong>Macro Dynamics: </strong><a href="https://lighthousemacro.substack.com/p/labor-the-source-code">Labor</a>, <a href="https://lighthousemacro.substack.com/p/prices-the-transmission-belt">Prices</a>, <a href="https://lighthousemacro.substack.com/p/growth-the-second-derivative">Growth</a>, <a href="https://lighthousemacro.substack.com/p/housing-the-collateral-engine">Housing</a>, <a href="https://lighthousemacro.substack.com/p/consumer-the-last-domino">Consumer</a>, <a href="https://lighthousemacro.substack.com/p/business-the-forward-commitment">Business</a>, <a href="https://lighthousemacro.substack.com/p/trade-the-pipeline">Trade</a></li>
   <li><strong>Monetary Mechanics: </strong><a href="https://lighthousemacro.substack.com/p/government-the-fiscal-overhang">Government</a>, <a href="https://lighthousemacro.substack.com/p/financial-the-cascade">Financial</a>, <a href="https://lighthousemacro.substack.com/p/plumbing-the-invisible-infrastructure">Plumbing</a></li>
@@ -313,15 +321,15 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
   <li><strong>The Beacon: </strong>long-form, one thesis taken all the way down.</li>
   <li><strong>The Horizon: </strong>the forward view, and where the risk sits.</li>
   <li><strong>The Chartbook: </strong>the data, laid out to be looked at.</li>
-  <li><strong>Crosscurrents: </strong>our live book. The framework turned into positions, with the rules for getting in, sizing and getting out set before the trade.</li>
+  <li><strong>Crosscurrents: </strong>our paper book, tracked on Pharos. The framework turned into positions, with the rules for getting in, sizing and getting out set before the trade.</li>
   <li><strong><a href="https://pharos.lighthousemacro.com">Pharos</a>: </strong>the terminal. The research, the charts and the dashboards in one place.</li>
 </ul>
 <p>The framework, the history and Marginal Matters are free. The live readings, the positioning and the forward views sit with paid subscribers.</p>
 <h2>Inside Pharos</h2>
 <p><a href="https://pharos.lighthousemacro.com">Pharos</a> is the terminal the research is built on. Every board recomputes from our master database with each build, and every chart carries its own read and its sources. It comes with membership.</p>
-<figure class="sh-fig"><img src="img/start-here/pharos-header.png" alt="The Pharos Prices board header and navigation" loading="lazy"><figcaption>Inside Pharos: one board per pillar, plus rates, credit, currencies, commodities, crypto, Main Street, operators and the Crosscurrents book.</figcaption></figure>
-<figure class="sh-fig"><img src="img/start-here/pharos-prices.png" alt="Two charts from the Pharos Prices board" loading="lazy"><figcaption>From the Prices board: market rents against the CPI’s shelter legs, and households against the bond market.</figcaption></figure>
-<figure class="sh-fig"><img src="img/start-here/pharos-consumer.png" alt="Two charts from the Pharos Consumer board" loading="lazy"><figcaption>From the Consumer board: card delinquency at small banks against the top 100, and how many retail categories are actually growing.</figcaption></figure>
+<figure class="sh-fig"><img src="img/start-here/pharos-header.png?v=20261125" alt="The Pharos Prices board header and navigation" loading="lazy"><figcaption>Inside Pharos: the Prices board. Every pillar and asset class has its own board.</figcaption></figure>
+<figure class="sh-fig"><img src="img/start-here/pharos-prices.png?v=20261125" alt="Two charts from the Pharos Prices board" loading="lazy"><figcaption>From the Prices board: market rents against the rent measures inside the CPI, and pump prices against energy inflation.</figcaption></figure>
+<figure class="sh-fig"><img src="img/start-here/pharos-consumer.png?v=20261125" alt="Two charts from the Pharos Consumer board" loading="lazy"><figcaption>From the Consumer board: how many retail categories are actually growing, and how households feel against what they spend.</figcaption></figure>
 <p class="sh-cta"><a class="btn btn-primary" href="index.html#pricing">Join the Watch</a><a class="btn btn-line" href="https://pharos.lighthousemacro.com">Sign in to Pharos</a></p>
 <p>For decks, monthly/quarterly meetings, or advisory work, write to <a href="mailto:advisory@lighthousemacro.com">advisory@lighthousemacro.com</a>.</p>
 <p>For custom research requests or institutional settings, write to <a href="mailto:research@lighthousemacro.com">research@lighthousemacro.com</a>.</p>
