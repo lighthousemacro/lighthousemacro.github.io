@@ -32,7 +32,7 @@ Lighthouse Macro reads the economic cycle through the Diagnostic Dozen: twelve m
 - [Research on Substack](https://research.lighthousemacro.com): where the publications are delivered. The Beacon (long-form flagship), The Beam (short, single-thesis), Notes (free), The Chartbook, and The Horizon (forward outlook)
 
 ## Pharos and membership
-- [Pharos](https://lighthousemacro.com/pharos/): the research terminal the publications are written from, with live boards and 60+ proprietary indicators
+- [Pharos](https://lighthousemacro.com/pharos/): the research terminal the publications are written from, with live boards and 120+ proprietary indicators
 - [Pricing](https://lighthousemacro.com/#pricing): the Diagnostic Dozen, the methodology, and the free Notes are open to everyone. Research + Pharos membership is $500 a year or $50 a month. The Watch is $1,500 a year
 - Advisory for firms and operators (Advisor, Institutional, Fractional CIO for RIAs with $200M to $2B in AUM, and Operator): advisory@lighthousemacro.com
 
