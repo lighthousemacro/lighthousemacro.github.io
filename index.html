@@ -168,7 +168,7 @@ section{padding:var(--s9) 0}
 .tile .n{font-family:var(--font-mono);font-size:11px;color:#8FA8BF;letter-spacing:.1em}
 .tile .p{font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff}
 .tile .s{font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--st);text-transform:uppercase;margin-top:2px}
-.calm{--st:var(--light-sky)}.watch{--st:var(--sky)}.alert{--st:var(--dusk)}
+.calm{--st:var(--light-sky)}.watch{--st:var(--sky)}.alert{--st:var(--dusk)}.inband{--st:var(--light-sky)}.signal{--st:var(--dusk)}
 .legend{display:flex;gap:var(--s5);flex-wrap:wrap;margin-top:var(--s5);font-family:var(--font-mono);font-size:11.5px;color:#8FA8BF;align-items:center}
 .legend i{display:inline-block;width:14px;height:3px;margin-right:8px;vertical-align:middle}
 .legend a{color:var(--light-sky);margin-left:auto}.legend a:hover{color:#fff}
@@ -318,47 +318,35 @@ footer p{max-width:110ch;line-height:1.55;margin:0}
       <div class="card engine"><span class="num">Engine 03 · 2 pillars</span><h3>Market Structure</h3><p>Price-action internals and positioning. Breadth, leadership, divergence, sentiment, and the tape's read on what is consensus versus variant.</p><ul><li>Market Structure</li><li>Sentiment</li></ul></div>
     </div>
     <div class="board">
-      <div class="board-head"><b>LIVE REGIME BOARD</b><span class="eyebrow"><time datetime="2026-11-24">As of 2026-11-24</time> · Lighthouse Macro</span></div>
+      <div class="board-head"><b>LIVE REGIME BOARD</b><span class="eyebrow"><time datetime="2026-11-25">As of 2026-11-25</time> · Lighthouse Macro</span></div>
       <div class="tiles">
       
+        <div class="tile inband"><span class="n">01</span><span class="p">Labor</span><span class="s">NEUTRAL</span></div>
       
-        <div class="tile watch"><span class="n">01</span><span class="p">Labor</span><span class="s">HEALTHY</span></div>
+        <div class="tile inband"><span class="n">02</span><span class="p">Prices</span><span class="s">ON TARGET</span></div>
       
+        <div class="tile inband"><span class="n">03</span><span class="p">Growth</span><span class="s">ABOVE TREND</span></div>
       
-        <div class="tile watch"><span class="n">02</span><span class="p">Prices</span><span class="s">COOLING</span></div>
+        <div class="tile inband"><span class="n">04</span><span class="p">Housing</span><span class="s">FROZEN</span></div>
       
+        <div class="tile inband"><span class="n">05</span><span class="p">Consumer</span><span class="s">STRESSED</span></div>
       
-        <div class="tile watch"><span class="n">03</span><span class="p">Growth</span><span class="s">ABOVE TREND</span></div>
+        <div class="tile inband"><span class="n">06</span><span class="p">Business</span><span class="s">EXPANSION</span></div>
       
+        <div class="tile inband"><span class="n">07</span><span class="p">Trade</span><span class="s">NEUTRAL</span></div>
       
-        <div class="tile watch"><span class="n">04</span><span class="p">Housing</span><span class="s">WEAK</span></div>
+        <div class="tile inband"><span class="n">08</span><span class="p">Government</span><span class="s">ELEVATED</span></div>
       
+        <div class="tile signal"><span class="n">09</span><span class="p">Financial</span><span class="s">CRISIS</span></div>
       
-        <div class="tile alert"><span class="n">05</span><span class="p">Consumer</span><span class="s">CRISIS</span></div>
+        <div class="tile inband"><span class="n">10</span><span class="p">Plumbing</span><span class="s">SCARCE</span></div>
       
+        <div class="tile inband"><span class="n">11</span><span class="p">Market Structure</span><span class="s">WEAK</span></div>
       
-        <div class="tile calm"><span class="n">06</span><span class="p">Business</span><span class="s">SLOWING</span></div>
-      
-      
-        <div class="tile alert"><span class="n">07</span><span class="p">Trade</span><span class="s">DOLLAR SQUEEZE</span></div>
-      
-      
-        <div class="tile watch"><span class="n">08</span><span class="p">Government</span><span class="s">ELEVATED</span></div>
-      
-      
-        <div class="tile alert"><span class="n">09</span><span class="p">Financial</span><span class="s">CRISIS</span></div>
-      
-      
-        <div class="tile watch"><span class="n">10</span><span class="p">Plumbing</span><span class="s">SCARCE</span></div>
-      
-      
-        <div class="tile alert"><span class="n">11</span><span class="p">Market Structure</span><span class="s">BEARISH</span></div>
-      
-      
-        <div class="tile alert"><span class="n">12</span><span class="p">Sentiment</span><span class="s">CAPITULATION</span></div>
+        <div class="tile inband"><span class="n">12</span><span class="p">Sentiment</span><span class="s">FEARFUL</span></div>
       
       </div>
-      <div class="legend"><span><i style="background:var(--light-sky)"></i>|z| &lt; 0.5</span><span><i style="background:var(--sky)"></i>0.5 to 1.0</span><span><i style="background:var(--dusk)"></i>&gt; 1.0</span><a href="methodology.html">How we build it →</a></div>
+      <div class="legend"><span><i style="background:var(--light-sky)"></i>Normal range, inside ±1.65</span><span><i style="background:var(--dusk)"></i>Signal, beyond ±1.65 (outside the 5th to 95th percentile)</span><a href="methodology.html">How we build it →</a></div>
     </div>
   </div>
 </section>
