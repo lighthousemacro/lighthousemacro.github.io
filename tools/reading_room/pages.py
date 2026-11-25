@@ -249,7 +249,7 @@ def article(p: dict, posts: list[dict]) -> str:
           "datePublished": p["iso"], "url": url, "mainEntityOfPage": url, "image": og,
           "isAccessibleForFree": p["gate"] != "members", "articleSection": NAME[p["series"]],
           "author": {"@type": "Person", "name": "Bob Sheehan", "honorificSuffix": "CFA, CMT",
-                     "jobTitle": "Founder & Chief Economist", "url": f"{SITE}/#about"},
+                     "jobTitle": "Founder, Chief Economist & Macro Strategist", "url": f"{SITE}/#about"},
           "publisher": {"@type": "Organization", "name": "Lighthouse Macro", "url": SITE,
                         "logo": {"@type": "ImageObject", "url": f"{SITE}/android-chrome-512x512.png"}}}
     if p["words"]:
